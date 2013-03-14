@@ -45,6 +45,11 @@ footer {
 	padding: 10px;
 	z-index: 100;
 }
+#notifications form {
+	display: inline;
+	position: relative;
+	top: 40px;
+}
 #msg {
 	position: fixed;
 	top: 50px;
