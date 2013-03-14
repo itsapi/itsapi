@@ -6,7 +6,7 @@
 		$deletePid = htmlspecialchars($_POST['deletePost'], ENT_QUOTES);
 		$result = query_DB($mysqli, "DELETE FROM posts WHERE pid={$deletePid};");
 		query_DB($mysqli, "DELETE FROM comments WHERE pid={$deletePid};");
-		if ($result && mysqli_affected_rows($mysqli) != 0) {
+		if ($result) {
 			$msg .= wrap('p', $successDeletePost);
 		} else {
 			$msg .= wrap('p', $unsuccessDeletePost, 'error');
