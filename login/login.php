@@ -1,7 +1,7 @@
 <?
 	session_start();
 	
-	$msg = "";
+	$msg = $specialMsg;
 	$error = False;
 	
 	if ((isset($_SESSION['username']) OR isset($_COOKIE['username']))) { // Logged on:
