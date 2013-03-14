@@ -14,7 +14,7 @@
 		<? include('head.php'); ?>
 	</head>
 	<body>
-		<h1>HELLO!!</h1>
+		<h1>HELLO!!!!!!</h1>
 		<? include('header.php'); ?>
 		<div id="main">
 			<h2>Hello!</h2>
