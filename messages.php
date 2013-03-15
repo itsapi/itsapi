@@ -8,7 +8,6 @@
 	<head>
 		<title><?=$siteName?></title>
 		<? include('head.php'); ?>
-		<script src="js/ajax.js"></script>
 	</head>
 	<body>
 		<? include('header.php'); ?>
