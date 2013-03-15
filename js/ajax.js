@@ -1,14 +1,14 @@
 var httpRequest;
 			  
-function formAction(url, ids, element) {
+function formAction(url, ids) {
 	var queryStr = url + '?';
 	for (var i = 0; i < ids.length; i++) {
 		queryStr = queryStr + ids[i] + '=' + document.getElementById(ids[i]).value + '&';
 	}
-	makeRequest(queryStr, element);
+	makeRequest(queryStr);
 };
  
-function makeRequest(url, element) {
+function makeRequest(url) {
 	if (window.XMLHttpRequest) { // Mozilla, Safari, ...
 		httpRequest = new XMLHttpRequest();
 	} else if (window.ActiveXObject) { // IE
@@ -35,7 +35,7 @@ function makeRequest(url, element) {
 function alertContents() {
 	if (httpRequest.readyState === 4) {
 		if (httpRequest.status === 200) {
-			document.getElementById('messagesList').innerHTML = document.getElementById('messagesList').htmlContent = httpRequest.responseText;
+			document.getElementById('output').innerHTML = document.getElementById('output').htmlContent = httpRequest.responseText;
 		}
 	}
 }
