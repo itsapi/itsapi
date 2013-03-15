@@ -45,7 +45,7 @@ footer {
 	padding: 10px;
 	z-index: 100;
 }
-#notifications form {
+#notifications > form {
 	display: inline;
 	position: relative;
 	top: 40px;
