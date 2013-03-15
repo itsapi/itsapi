@@ -45,6 +45,12 @@ footer {
 	padding: 10px;
 	z-index: 100;
 }
+#notifications > form {
+	display: inline;
+	position: relative;
+	top: 40px;
+}
+
 #msg {
 	position: fixed;
 	top: 50px;
@@ -55,7 +61,35 @@ footer {
 	background-color: #ddd;
 	padding: 10px;
 	z-index: 101;
+    opacity: 0;
+    visibility: hidden;
+    
+    animation: fade 6.6s;
+    -moz-animation: fade 6.6s;
+    -webkit-animation: fade 6.6s;
+    -o-animation: fade 6.6s;
 }
+@keyframes fade {
+	0%   {opacity:1; position: fixed; visibility: visible;}
+	75%  {opacity:1; position: fixed; visibility: visible;}
+	100% {opacity:0; position: fixed; visibility: hidden;}
+}
+@-moz-keyframes fade {
+	0%   {opacity:1; position: fixed; visibility: visible;}
+	75%  {opacity:1; position: fixed; visibility: visible;}
+	100% {opacity:0; position: fixed; visibility: hidden;}
+}
+@-webkit-keyframes fade {
+	0%   {opacity:1; position: fixed; visibility: visible;}
+	75%  {opacity:1; position: fixed; visibility: visible;}
+	100% {opacity:0; position: fixed; visibility: hidden;}
+}
+@-o-keyframes fade {
+	0%   {opacity:1; position: fixed; visibility: visible;}
+	75%  {opacity:1; position: fixed; visibility: visible;}
+	100% {opacity:0; position: fixed; visibility: hidden;}
+}
+
 #deleteMsg {
 	position: absolute;
 	top: 15px;
