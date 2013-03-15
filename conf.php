@@ -4,7 +4,7 @@
 	}
 	
 	$siteName = "It's a Pi!";
-	$domain = 'itsapi.no-ip.org';
+	$domain = 'localhost/itsapi';
 
 	$specialMsg = '';
 	

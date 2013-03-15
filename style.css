@@ -50,6 +50,7 @@ footer {
 	position: relative;
 	top: 40px;
 }
+
 #msg {
 	position: fixed;
 	top: 50px;
@@ -60,7 +61,34 @@ footer {
 	background-color: #ddd;
 	padding: 10px;
 	z-index: 101;
+    opacity: 0;
+    
+    animation: fade 7s;
+    -moz-animation: fade 7s;
+    -webkit-animation: fade 7s;
+    -o-animation: fade 7s;
 }
+@keyframes fade {
+	0%   {opacity:1;}
+	75%  {opacity:1;}
+	100% {opacity:0;}
+}
+@-moz-keyframes fade {
+	0%   {opacity:1;}
+	75%  {opacity:1;}
+	100% {opacity:0;}
+}
+@-webkit-keyframes fade {
+	0%   {opacity:1;}
+	75%  {opacity:1;}
+	100% {opacity:0;}
+}
+@-o-keyframes fade {
+	0%   {opacity:1;}
+	75%  {opacity:1;}
+	100% {opacity:0;}
+}
+
 #deleteMsg {
 	position: absolute;
 	top: 15px;
