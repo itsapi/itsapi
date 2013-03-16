@@ -6,7 +6,7 @@
 	$siteName = "It's a Pi!";
 	$domain = 'itsapi.no-ip.org';
 
-	$specialMsg = 'Hello from grit';
+	$specialMsg = '';
 	
 	$passLength = 8;
 	$userLength = 3;
