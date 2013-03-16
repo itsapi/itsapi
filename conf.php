@@ -1,6 +1,6 @@
 <?
-	function wrap($tag, $content, $class = '', $prefix = '') {
-		return "{$prefix}<{$tag} class=\"{$class}\">{$content}{$prefix}</{$tag}>";
+	function wrap($tag, $content, $name = '', $prefix = '', $type = 'class') {
+		return "{$prefix}<{$tag} $type=\"{$name}\">{$content}{$prefix}</{$tag}>";
 	}
 	
 	$siteName = "It's a Pi!";

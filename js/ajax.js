@@ -10,7 +10,8 @@ function formAction(url, ids, element) {
 	makeRequest(queryStr);
 };
 
-function formActionValues(url, ids, values) {
+function formActionValues(url, ids, values, element) {
+	elementID = element;
 	var queryStr = url + '?';
 	for (var i = 0; i < ids.length; i++) {
 		queryStr = queryStr + ids[i] + '=' + values[i] + '&';

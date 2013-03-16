@@ -36,7 +36,7 @@ footer {
 	width: 30%;
 	text-align: right;
 }
-.notificationsBar, .friendsBar {
+#notificationsBar, #friendsBar {
 	position: absolute;
 	right: 0;
 	top: 85px;

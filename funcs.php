@@ -53,7 +53,7 @@
 		}
 	}
 
-	function friends($mysqli, $currentUser, $linkStr, $class="friendList") {
+	function friends($mysqli, $currentUser, $linkStr, $id="friendList") {
 		$result = query_DB($mysqli, "SELECT fid, uid1, uid2 FROM friends WHERE (uid1={$currentUser['uid']} OR uid2={$currentUser['uid']}) AND `acc1`=1 AND `acc2`=1");
 		if ($result) {
 			if (mysqli_num_rows($result) != 0) {
@@ -66,7 +66,7 @@
 						}
 					}
 				}
-				echo wrap('ul', "\n\t\t\t" . wrap('li', implode("</li>\n<li>", $friendsTxt)), $class, "\n\t\t") . "\n";
+				echo wrap('ul', "\n\t\t\t" . wrap('li', implode("</li>\n<li>", $friendsTxt)), $id, "\n\t\t", 'id') . "\n";
 			} else {
 				echo wrap('p', $GLOBALS['noFriends'], 'friendsBar');
 			}
