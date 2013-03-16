@@ -6,11 +6,7 @@
 	$siteName = "It's a Pi!";
 	$domain = 'itsapi.no-ip.org';
 
-<<<<<<< HEAD
 	$specialMsg = '';
-=======
-	$specialMsg = 'Hello from olls!';
->>>>>>> a25a57466bf93bfd593f322413876a5789fb86f1
 	
 	$passLength = 8;
 	$userLength = 3;
