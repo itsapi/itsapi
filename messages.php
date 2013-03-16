@@ -60,13 +60,13 @@
 					
 					echo "<form action=\"messages.php?username={$_GET['username']}\" method=\"post\"><input type=\"submit\" name=\"older\" value=\"Show Older\"><ul>";
 ?>
-					<section id="output">
+					<section id="messagesList">
 					
 					</section>
 <?
 					echo "</ul><input type=\"text\" id=\"messagesOffset\" name=\"messagesOffset\" value=\"{$messagesOffset}\" hidden><input type=\"submit\" name=\"newer\" value=\"Show Newer\"></form>";
 ?>
-	<form action="javascript: formAction('sendMessage.php', ['messageText', 'username']); document.getElementById('messageText').value = ''; formAction('messageView.php', ['messagesOffset', 'username']);">
+	<form action="javascript: formAction('sendMessage.php', ['messageText', 'username'], ''); document.getElementById('messageText').value = '';">
 		<input type="text" id="messageText" autofocus>
 		<input type="text" id="username" value="<?=$_GET['username']?>" hidden>
 		<input type="submit" value="Send">
@@ -74,7 +74,7 @@
 				<script>
 					var timeout = 1000;
 					var action = function() {
-						formAction('messageView.php', ['messagesOffset', 'username'], 'output');
+						formAction('messageView.php', ['messagesOffset', 'username'], 'messagesList');
 					};
 					setInterval(action, timeout);				
 					

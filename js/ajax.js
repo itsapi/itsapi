@@ -1,6 +1,8 @@
 var httpRequest;
+var elementID;
 			  
-function formAction(url, ids) {
+function formAction(url, ids, element) {
+	elementID = element;
 	var queryStr = url + '?';
 	for (var i = 0; i < ids.length; i++) {
 		queryStr = queryStr + ids[i] + '=' + document.getElementById(ids[i]).value + '&';
@@ -8,7 +10,8 @@ function formAction(url, ids) {
 	makeRequest(queryStr);
 };
 
-function formActionValues(url, ids, values) {
+function formActionValues(url, ids, values, element) {
+	elementID = element;
 	var queryStr = url + '?';
 	for (var i = 0; i < ids.length; i++) {
 		queryStr = queryStr + ids[i] + '=' + values[i] + '&';
@@ -49,7 +52,7 @@ function makeRequest(url) {
 function alertContents() {
 	if (httpRequest.readyState === 4) {
 		if (httpRequest.status === 200) {
-			document.getElementById('output').innerHTML = document.getElementById('output').htmlContent = httpRequest.responseText;
+			document.getElementById(elementID).innerHTML = document.getElementById(elementID).htmlContent = httpRequest.responseText;
 		}
 	}
 }
