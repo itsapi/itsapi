@@ -6,7 +6,7 @@
 	$siteName = "It's a Pi!";
 	$domain = 'itsapi.no-ip.org';
 
-	$specialMsg = 'Hello from olls!';
+	$specialMsg = '';
 	
 	$passLength = 8;
 	$userLength = 3;
@@ -137,6 +137,8 @@ END;
 	$noPhotos = 'does not have any photos yet.';
 	$photoNoTitle = 'You must enter a title.';
 	
+	$postSuccess = wrap('p', 'Post success.');
+	$postFail = wrap('p', 'Post failed.');
 	$successDeletePost = 'Your post was deleted.';
 	$unsuccessDeletePost = 'Your post failed to deleted.';
 	

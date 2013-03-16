@@ -8,7 +8,7 @@
 		$javascript = Null;
 		
 		if (isset($_POST['editedPostContent'])) {
-			$editedPostContent = nl2br_limit(htmlspecialchars($_REQUEST['editedPostContent'], ENT_QUOTES), 1);
+			$editedPostContent = htmlspecialchars($_REQUEST['editedPostContent'], ENT_QUOTES);
 			$result = query_DB($mysqli, "UPDATE posts SET content='{$editedPostContent}' WHERE pid={$pid}");
 			if ($result) {
 				$javascript = "<script>\nwindow.opener.location.reload();\nwindow.close();\n</script>";

@@ -432,7 +432,6 @@
 				// Not a valid URL.
 				$output .= ($url);
 			}
-
 			// Continue text parsing from after the URL.
 			$position = $urlPosition + strlen($url);
 		}
@@ -444,8 +443,14 @@
 	
 	function removeLines($text) {
 		$text = preg_replace("/[\r\n]+/", "\n", $text);
+		//echo substr($text, -1);
+		while (substr($text, -1) == "\n") {
+			$text = substr($text, 0, -1);
+		}
+
 		$text = nl2br($text);
-		
+//		print_r("<script>alert('" . $text . "')</script>");
+
 		return $text;
 	}
 

@@ -15,7 +15,7 @@
 	
 	if (isset($_REQUEST['postContent'])) {			
 		if ($_REQUEST['postContent'] == '') {
-			echo($noContentPost);
+			$msg .= $noContentPost;
 			$error = True;
 		}
 		if (!$error) {
@@ -23,9 +23,9 @@
 			$query = "INSERT INTO `posts` (`uid`, `date`, `content`) VALUES ('{$uid}', '" . time() . "', '{$content}')";
 			$result = query_DB($mysqli, $query);
 			if ($result) {
-				$msg .= wrap('p', 'Post success.');
+				$msg .= $postSuccess;
 			} else {
-				$msg .= wrap('p', 'Post failed.');
+				$msg .= $postFail;
 			}
 		}
 	}
