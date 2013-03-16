@@ -68,7 +68,7 @@
 				}
 				echo wrap('ul', "\n\t\t\t" . wrap('li', implode("</li>\n<li>", $friendsTxt)), $id, "\n\t\t", 'id') . "\n";
 			} else {
-				echo wrap('p', $GLOBALS['noFriends'], 'friendsBar');
+				echo wrap('p', $GLOBALS['noFriends'], $class);
 			}
 		}
 	}
@@ -79,7 +79,7 @@
 		$userData = userData($uid, $mysqli, 'uid');
 		if ($userData['emailNotifications'] == 1) {
 			$message = str_replace(['{title}','{link}'], [$title, $link], $GLOBALS['notificationMessage']);
-			email($userData, $title, $message);
+			//email($userData, $title, $message);
 		}
 		return $result;
 	}
@@ -462,3 +462,19 @@
 			return False;
 		}
 	}
+
+	function textWrap($text) {
+        $new_text = '';
+        $text_1 = explode('>',$text);
+        $sizeof = sizeof($text_1);
+        for ($i=0; $i<$sizeof; ++$i) {
+            $text_2 = explode('<',$text_1[$i]);
+            if (!empty($text_2[0])) {
+                $new_text .= preg_replace('#([^\n\r .]{25})#i', '\\1  ', $text_2[0]);
+            }
+            if (!empty($text_2[1])) {
+                $new_text .= '<' . $text_2[1] . '>';
+            }
+        }
+        return $new_text;
+    }

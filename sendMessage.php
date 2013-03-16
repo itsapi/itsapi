@@ -9,12 +9,6 @@
 			if ($_COOKIE['lastMessage' . $uid] < time() - $timeOut) {
 				notification($mysqli, $uidTo, $messageFrom . $currentUser['username'], "{$domain}/messages.php?username={$currentUser['username']}");
 			}
-			setcookie('lastMessage' . $uid, time(), time()+60*60*24*30);
-			
-			if ($result) {
-				echo $messageSuccess;
-			} else {
-				echo $messageFail;
-			}
+			setcookie('lastMessage' . $uid, time());
 		}
 		
