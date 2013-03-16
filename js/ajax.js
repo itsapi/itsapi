@@ -38,13 +38,7 @@ function makeRequest(url) {
 		alert('Giving up :( Cannot create an XMLHTTP instance');
 		return false;
 	}
-	httpRequest.onreadystatechange = (function() {
-		if (httpRequest.readyState === 4) {
-			if (httpRequest.status === 200) {
-				document.getElementById('output').innerHTML = document.getElementById('output').htmlContent = httpRequest.responseText;
-			}
-		}
-	});
+	httpRequest.onreadystatechange = alertContents;
 	httpRequest.open('GET', url);
 	httpRequest.send();
 }

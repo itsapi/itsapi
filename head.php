@@ -30,15 +30,18 @@
 					formAction('viewNotifications.php', ['viewProfile'], 'notificationsList')
 					if (document.getElementById('viewFriends').value.indexOf('<?=$hideFriendsButtonTxt?>') != -1) {
 						showFriends()
+						notificationLabel()
 					}
 				} else {
 					s.value = '<?=$viewNotificationsButtonTxt?>'
 					var elem = document.getElementById('notificationsBar')
 					elem.parentNode.removeChild(elem)
+					notificationLabel()
 				}
-				notificationLabel()
 			}
 			function notificationLabel() {
-				
+				formAction('notificationCount.php', ['viewNotifications'], 'buttonValue')
+				document.getElementById('viewNotifications').value = document.getElementById('buttonValue').innerText
 			}
+			window.onload = notificationLabel()
 		</script>
