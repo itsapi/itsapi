@@ -1,4 +1,4 @@
-<?	
+<?
 	include('inc.php');
 ?>
 
@@ -81,7 +81,6 @@
 				</script>
 <?
 				} else {
-					friends($mysqli, $currentUser, '{firstname} {lastname} <a href="messages.php?username={username}">View messages</a>', '');
 
 					$namesForMessages = [];
 
@@ -97,10 +96,10 @@
 							}
 						}
 					}
-
-					$result = query_DB($mysqli, "SELECT uidFrom, uidTo FROM messages WHERE uidFrom={$currentUser['uid']} OR uidTo={$currentUser=['uid']}");
+					
+					$result = query_DB($mysqli, "SELECT uidFrom, uidTo FROM messages WHERE uidFrom={$currentUser['uid']} OR uidTo={$currentUser['uid']}");
 					if ($result) {
-						if (mysql_num_rows($result) != 0) {
+						if (mysqli_num_rows($result) != 0) {
 							while ($message = mysqli_fetch_assoc($result)) {
 								foreach ($message as $msgUserUid) {
 									if ($msgUserUid != $currentUser['uid']) {
@@ -117,12 +116,13 @@
 							$clean[] = $uidForMessages;
 						}
 					}
-					$clean = sort($clean);
+
+					sort($clean);
 
 					echo '<ul>';
 					foreach ($clean as $uid) {
 						$user = userData($uid, $mysqli, 'uid');
-						echo str_replace(['{username}', '{firstname}', '{lastname}'], "<li>{firstname} {lastname} <a href=\"messages.php?username={username}\">View messages</a></li>\n");
+						echo str_replace(['{username}', '{firstname}', '{lastname}'], [$user['username'], $user['firstname'], $user['lastname']], "<li>{firstname} {lastname} <a href=\"messages.php?username={username}\">View messages</a></li>\n");
 					}
 					echo '</ul>';
 				}

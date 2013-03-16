@@ -79,7 +79,7 @@
 		$userData = userData($uid, $mysqli, 'uid');
 		if ($userData['emailNotifications'] == 1) {
 			$message = str_replace(['{title}','{link}'], [$title, $link], $GLOBALS['notificationMessage']);
-			//email($userData, $title, $message);
+			email($userData, $title, $message);
 		}
 		return $result;
 	}
