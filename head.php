@@ -8,13 +8,14 @@
 			function hideMe(o) {
 				document.getElementById(o).style.display = 'none'
 			}
-		</script>
-		<script>
 			function showFriends() {
 				s = document.getElementById('viewFriends')
 				if (s.value == '<?=$viewFriendsButtonTxt?>') {
 					s.value = '<?=$hideFriendsButtonTxt?>'
 					formAction('viewFriends.php', ['viewFriends'], 'friendsList')
+					if (document.getElementById('viewNotifications').value.indexOf('<?=$hideNotificationsButtonTxt?>') != -1) {
+						showNotifications()
+					}
 				} else {
 					s.value = '<?=$viewFriendsButtonTxt?>'
 					var elem = document.getElementById('friendsBar')
@@ -26,10 +27,14 @@
 				if (s.value.indexOf('<?=$viewNotificationsButtonTxt?>') != -1) {
 					s.value = '<?=$hideNotificationsButtonTxt?>'
 					formActionValues('viewNotifications.php', ['uid'], ['<?=$currentUser['uid']?>'], 'notificationsList')
+					if (document.getElementById('viewFriends').value.indexOf('<?=$hideFriendsButtonTxt?>') != -1) {
+						showFriends()
+					}
 				} else {
 					s.value = '<?=$viewNotificationsButtonTxt?>'
 					var elem = document.getElementById('notificationsBar')
 					elem.parentNode.removeChild(elem)
 				}
 			}
+			
 		</script>

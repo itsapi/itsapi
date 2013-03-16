@@ -5,6 +5,8 @@
 					if ($loggedIn) {
 						include('friends.php');
 						include('notifications.php');
+						echo '<section id="notificationsList"></section>';
+						echo '<section id="friendsList"></section>';
 					}
 ?>
 			</div>
