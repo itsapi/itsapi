@@ -82,6 +82,49 @@
 <?
 				} else {
 					friends($mysqli, $currentUser, '{firstname} {lastname} <a href="messages.php?username={username}">View messages</a>', '');
+
+					$namesForMessages = [];
+
+					$result = query_DB($mysqli, "SELECT uid1, uid2 FROM friends WHERE (uid1={$currentUser['uid']} OR uid2={$currentUser['uid']}) AND `acc1`=1 AND `acc2`=1");
+					if ($result) {
+						if (mysqli_num_rows($result) != 0) {
+							while ($friendship = mysqli_fetch_assoc($result)) {
+								foreach ($friendship as $friendUid) {
+									if ($friendUid != $currentUser['uid']) {
+										$uidsForMessages[] = $friendUid;
+									}
+								}
+							}
+						}
+					}
+
+					$result = query_DB($mysqli, "SELECT uidFrom, uidTo FROM messages WHERE uidFrom={$currentUser['uid']} OR uidTo={$currentUser=['uid']}");
+					if ($result) {
+						if (mysql_num_rows($result) != 0) {
+							while ($message = mysqli_fetch_assoc($result)) {
+								foreach ($message as $msgUserUid) {
+									if ($msgUserUid != $currentUser['uid']) {
+										$uidsForMessages[] = $msgUserUid;
+									}
+								}
+							}
+						}
+					}
+
+					$clean = [];
+					foreach ($uidsForMessages as $uidForMessages) {
+						if (!in_array($uidForMessages, $clean)) {
+							$clean[] = $uidForMessages;
+						}
+					}
+					$clean = sort($clean);
+
+					echo '<ul>';
+					foreach ($clean as $uid) {
+						$user = userData($uid, $mysqli, 'uid');
+						echo str_replace(['{username}', '{firstname}', '{lastname}'], "<li>{firstname} {lastname} <a href=\"messages.php?username={username}\">View messages</a></li>\n");
+					}
+					echo '</ul>';
 				}
 ?>
 		</div>
