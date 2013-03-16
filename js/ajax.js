@@ -7,6 +7,14 @@ function formAction(url, ids) {
 	}
 	makeRequest(queryStr);
 };
+
+function formActionValues(url, ids, values) {
+	var queryStr = url + '?';
+	for (var i = 0; i < ids.length; i++) {
+		queryStr = queryStr + ids[i] + '=' + values[i] + '&';
+	}
+	makeRequest(queryStr);
+};
  
 function makeRequest(url) {
 	if (window.XMLHttpRequest) { // Mozilla, Safari, ...
