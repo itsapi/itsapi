@@ -102,8 +102,8 @@ END;
 	$viewFriendsButtonTxt = 'Show Friends';
 	$hideFriendsButtonTxt = 'Hide Friends';
 	
-	$viewNotificationsButtonTxt = 'Show notifications';
-	$hideNotificationsButtonTxt = 'Hide notifications';
+	$viewNotificationsButtonTxt = 'Show Notifications';
+	$hideNotificationsButtonTxt = 'Hide Notifications';
 	
 	$viewPostsButtonTxt = 'Show posts';
 	$viewProfileButtonTxt = 'Show profile';
@@ -118,7 +118,7 @@ END;
 	$likeText ='Give Pi';
 	$thumbnailSize = 70;
 	$noPosts = 'Nothing to see here.';
-	$timeOut = 300;
+	$timeOut = 5;
 	$resetPassLength = 30;
 	$changeEmailLength = 30;
 	$requestError = 'Cannot process request.';

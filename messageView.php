@@ -19,6 +19,6 @@
 			}
 			$messageUserInfo = userData($message['uidFrom'], $mysqli, 'uid');
 			echo "\"><a 
-			href=\"user.php?username={$messageUserInfo['username']}\">{$messageUserInfo['firstname']}</a>{$infoSeperator}" . detectURL($message['message'], False) . " <span class=\"date\">" . date('d/m/y G:i', $message['date']) . '</span></li>';
+			href=\"user.php?username={$messageUserInfo['username']}\">{$messageUserInfo['firstname']}</a>{$infoSeperator}" . textWrap(detectURL($message['message'], False)) . " <span class=\"date\">" . date('d/m/y G:i', $message['date']) . '</span></li>';
 		}
 	}

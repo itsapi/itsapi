@@ -20,8 +20,7 @@
 		}
 		if (!$error) {
 			$content = htmlspecialchars($_REQUEST['postContent'], ENT_QUOTES);
-			$query = "INSERT INTO `posts` (`uid`, `date`, `content`) VALUES ('{$uid}', '" . time() . "', '{$content}')";
-			$result = query_DB($mysqli, $query);
+			$result = query_DB($mysqli, "INSERT INTO `posts` (`uid`, `date`, `content`) VALUES ('{$uid}', '" . time() . "', '{$content}')");
 			if ($result) {
 				$msg .= $postSuccess;
 			} else {
@@ -29,4 +28,3 @@
 			}
 		}
 	}
-
