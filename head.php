@@ -9,7 +9,7 @@
 				document.getElementById(o).style.display = 'none'
 			}
 			function showFriends() {
-				s = document.getElementById('viewFriends')
+				var s = document.getElementById('viewFriends')
 				if (s.value == '<?=$viewFriendsButtonTxt?>') {
 					s.value = '<?=$hideFriendsButtonTxt?>'
 					formAction('viewFriends.php', ['viewFriends'], 'friendsList')
@@ -24,7 +24,7 @@
 				}
 			}
 			function showNotifications() {
-				s = document.getElementById('viewNotifications')
+				var s = document.getElementById('viewNotifications')
 				if (s.value.indexOf('<?=$viewNotificationsButtonTxt?>') != -1) {
 					s.value = '<?=$hideNotificationsButtonTxt?>'
 					formAction('viewNotifications.php', ['viewProfile'], 'notificationsList')
@@ -41,7 +41,8 @@
 			}
 			function notificationLabel() {
 				formAction('notificationCount.php', ['viewNotifications'], 'buttonValue')
-				document.getElementById('viewNotifications').value = document.getElementById('buttonValue').innerText
+				var s = document.getElementById('viewNotifications')
+				s.value = document.getElementById('buttonValue').innerText
 			}
 			window.onload = notificationLabel()
 		</script>
