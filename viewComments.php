@@ -60,7 +60,7 @@
 	if ($loggedIn) {
 ?>
 
-				<form name="submitComment" method="post" action="<?=keepUrl()?>">
+				<form name="submitCommentForm" method="post" action="<?=keepUrl()?>">
 					<input type="text" name="pid" value="<?=$pid?>" hidden>
 					<input type="text" name="puid" value="<?=$postProfileData['uid']?>" hidden>
 					<textarea name="commentContent"><?=$errorCommentContent?></textarea><br>
