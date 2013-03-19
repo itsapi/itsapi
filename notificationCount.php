@@ -2,7 +2,7 @@
 	include 'inc.php';
 
 	$notificationNum = numNotifications($mysqli, $currentUser);
-	$buttonText = explode("(",$_GET['viewNotifications'])[0];
+	$buttonText = $_GET['viewNotifications'];
 	if ($notificationNum > 0) {
 		echo $buttonText . ' (' . $notificationNum . ')';
 	} else {
