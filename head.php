@@ -30,7 +30,6 @@
 					if (document.getElementById('viewFriends').value.indexOf('<?=$hideFriendsButtonTxt?>') != -1) {
 						showFriends()
 					}
-					//notificationLabel()
 				} else {
 					s.value = '<?=$viewNotificationsButtonTxt?>'
 					var elem = document.getElementById('notificationsBar')
