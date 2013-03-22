@@ -34,7 +34,7 @@
 			<h3 id="photoTitle"><?=$images[$key]['title']?></h3>
 			<h4><?=($key + 1) . '/' . (count($images))?></h4>
 			<p>Uploaded on <?=date('d/m/y G:i', $images[$key]['date'])?></p>
-			<img src="viewPhoto.php?iid=<?=$images[$key]['iid']?>&size=<?=$profilePagePictureSize?>" alt="<?=$images[$key]['title']?>">
+			<a href="viewPhoto.php?iid=<?=$images[$key]['iid']?>" target="_blank"><img src="viewPhoto.php?iid=<?=$images[$key]['iid']?>&size=<?=$profilePagePictureSize?>" alt="<?=$images[$key]['title']?>"></a>
 <?
 					if ($loggedIn) {
 						if ($currentUser['uid'] == $userProfile['uid']) {
