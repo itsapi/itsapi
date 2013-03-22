@@ -36,7 +36,7 @@
 			<p>Uploaded on <?=date('d/m/y G:i', $images[$key]['date'])?></p>
 			<a href="viewPhoto.php?iid=<?=$images[$key]['iid']?>" target="_blank"><img src="viewPhoto.php?iid=<?=$images[$key]['iid']?>&size=<?=$profilePagePictureSize?>" alt="<?=$images[$key]['title']?>"></a>
 
-			<form action="javascript: copyToClipboard('<?=$domain?>/photo.php?iid=<?=$images[$key]['iid']?>&username=<?=$userProfile['uid']?>#photoTitle')">
+			<form action="javascript: copyToClipboard('<?=$domain?>/photo.php?iid=<?=$images[$key]['iid']?>&username=<?=$userProfile['username']?>#photoTitle')">
 				<input type="submit" value="Get image link">
 			</form>
 <?
