@@ -419,7 +419,7 @@
 				if ($media) {
 					if (stripos($completeUrl, 'youtube.com/watch?v=')) {
 						$youtubeWatchCode = explode('&', explode('?v=', $completeUrl)[1])[0];
-						$output .= '<iframe width="560" height="350" src="http://www.youtube.com/embed/' . $youtubeWatchCode . '" frameborder="0" allowfullscreen></iframe>';
+						$output .= '<iframe width="560" height="350" src="http://www.youtube.com/embed/' . $youtubeWatchCode . '?wmode=direct" frameborder="0" allowfullscreen></iframe>';
 					} elseif (preg_match('{\.[0-9]{1,3}}', $imgFile) || isset($validImg[$imgFile]) || stripos($completeUrl, 'viewPhoto.php?iid=')) {
 						$output .= '<a href=' . $completeUrl . $target . '<img src=' . $completeUrl . '></a>';
 					} else {
