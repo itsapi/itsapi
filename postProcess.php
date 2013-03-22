@@ -1,5 +1,5 @@
 <?
-	if ($loggedIn) { include('submitComment.php'); }
+	if (!isset($postPage) && $loggedIn) { include('submitComment.php'); }
 	include('commentProcess.php');
 	
 	if (isset($_POST['deletePost'])) {

@@ -1,5 +1,6 @@
 <?
 	include('inc.php');
+	$postPage = True;
 	include('postProcess.php');
 	
 	if (!isset($_GET['pid'])) {
