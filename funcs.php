@@ -410,7 +410,7 @@
 				
 				// Print the hyperlink.
 				$imgFile = strtolower(strrchr($path, '.'));
-				if (stripos($completeUrl, 'dvbris.no-ip.org')) {
+				if (stripos($completeUrl, $GLOBALS['domain'])) {
 					$target = '>';
 				} else {
 					$target = ' target=\"blank\">';
