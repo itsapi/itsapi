@@ -421,7 +421,7 @@
 						$youtubeWatchCode = explode('&', explode('?v=', $completeUrl)[1])[0];
 						$output .= '<iframe width="560" height="350" src="http://www.youtube.com/embed/' . $youtubeWatchCode . '" frameborder="0" allowfullscreen></iframe>';
 					} elseif (preg_match('{\.[0-9]{1,3}}', $imgFile) || isset($validImg[$imgFile]) || stripos($completeUrl, 'viewPhoto.php?iid=')) {
-						$output .= '<img src=' . $completeUrl . '>';
+						$output .= '<a href=' . $completeUrl . $target . '<img src=' . $completeUrl . '></a>';
 					} else {
 						$output .= '<a href=' . $completeUrl . $target . "$domain$port$path" . '</a>';
 					}
@@ -443,14 +443,11 @@
 	
 	function removeLines($text) {
 		$text = preg_replace("/[\r\n]+/", "\n", $text);
-		//echo substr($text, -1);
 		while (substr($text, -1) == "\n") {
 			$text = substr($text, 0, -1);
 		}
 
 		$text = nl2br($text);
-//		print_r("<script>alert('" . $text . "')</script>");
-
 		return $text;
 	}
 
