@@ -41,4 +41,7 @@
 				var s = document.getElementById('viewNotifications')
 				s.value = document.getElementById('buttonValue').innerText
 			}
+			function copyToClipboard (text) {
+				window.prompt ("Copy to clipboard: Ctrl+C, Enter", text);
+			}
 		</script>

@@ -35,6 +35,10 @@
 			<h4><?=($key + 1) . '/' . (count($images))?></h4>
 			<p>Uploaded on <?=date('d/m/y G:i', $images[$key]['date'])?></p>
 			<a href="viewPhoto.php?iid=<?=$images[$key]['iid']?>" target="_blank"><img src="viewPhoto.php?iid=<?=$images[$key]['iid']?>&size=<?=$profilePagePictureSize?>" alt="<?=$images[$key]['title']?>"></a>
+
+			<form action="javascript: copyToClipboard('viewPhoto.php?iid=<?=$images[$key]['iid']?>&username=<?=$userProfile['uid']?>#photoTitle')">
+				<input type="submit" value="Get image link">
+			</form>
 <?
 					if ($loggedIn) {
 						if ($currentUser['uid'] == $userProfile['uid']) {
