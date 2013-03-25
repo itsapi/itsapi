@@ -184,14 +184,7 @@ END;
 	$givePiFail = 'Failed to Give Pi';
 	$givePiAlready = 'Already Given Pi';
 	
-	$mailPass = "miranda96";
-	$mailUser = "noreply.itsapi@gmail.com";
-	$smtpHost = "smtp.gmail.com";
-	$mailSecurity = "ssl";
-	$mailPort = 465;
-	$mailFrom = "noreply.itsapi@gmail.com";
-	$mailReplyTo = "noreply.itsapi@gmail.com";
-	$noHTML = "To view the message, please use an HTML compatible email viewer!";
+	include 'mailConf.php';
 	
 	$photoDeleteSuccess = 'Your photo was deleted.';
 
