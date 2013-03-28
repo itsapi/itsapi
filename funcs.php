@@ -68,7 +68,7 @@
 				}
 				echo wrap('ul', "\n\t\t\t" . wrap('li', implode("</li>\n<li>", $friendsTxt)), $id, "\n\t\t", 'id') . "\n";
 			} else {
-				echo wrap('p', $GLOBALS['noFriends'], $class);
+				echo wrap('p', $GLOBALS['noFriends'], $id);
 			}
 		}
 	}
