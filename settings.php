@@ -1,6 +1,6 @@
 <?
-	include('inc.php');
-	include('saveSettings.php');
+	include($fileNames['inc']);
+	include($fileNames['saveSettings']);
 ?>
 
 <!DOCTYPE html>
@@ -8,21 +8,21 @@
 <html>
 	<head>
 		<title>Profile Settings</title>
-		<? include('head.php'); ?>
+		<? include($fileNames['head']); ?>
 	</head>
 	<body>
-		<? include('header.php'); ?>
+		<? include($fileNames['header']); ?>
 		<div id="main">
 			<h2>Profile Settings</h2>
 			<div id="main">
 <?
-				include('login/loginForm.php');
-				include('searchResults.php');
-				include('settingsForm.php');
+				include($fileNames['loginForm']);
+				include($fileNames['searchResults']);
+				include($fileNames['settingsForm']);
 ?>
 			</div>
 <?
-				include('footer.php');
+				include($fileNames['footer']);
 ?>
 	</body>
 </html>

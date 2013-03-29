@@ -1,8 +1,8 @@
 <?
-	include('inc.php');
-	include('userProcess.php');
-	include('userPostsProcess.php');
-	include('postProcess.php');
+	include($fileNames['inc']);
+	include($fileNames['userProcess']);
+	include($fileNames['userPostsProcess']);
+	include($fileNames['postProcess']);
 ?>
 
 <!DOCTYPE html>
@@ -10,10 +10,10 @@
 <html>
 	<head>
 		<title><?=$profileName?></title>
-		<? include('head.php'); ?>
+		<? include($fileNames['head']); ?>
 	</head>
 	<body>
-		<? include('header.php'); ?>
+		<? include($fileNames['header']); ?>
 		<div id="main">
 <?
 				if ($userExists) {
@@ -41,24 +41,24 @@
 	<h4><?=str_replace('{profileName}', $profileName, $friendRequestAccepted)?></h4>
 <?
 							} else {
-								include('showAddFriend.php');
+								include($fileNames['showAddFriend']);
 							}
 						}
 					}
 				}
 				
-				include('login/loginForm.php');
-				include('searchResults.php');
+				include($fileNames['loginForm']);
+				include($fileNames['searchResults']);
 				
 				if ($userExists) {
 					if ($pageViewable) {
 						echo("\t\t<p>{$welcomeMessage}</p>\n");
 						if ($loggedIn) {
 							if ($userProfile != $currentUser) {
-								echo("\t\t<p><a href=\"messages.php?username={$userProfile['username']}\">Message</a></p>\n");
+								echo("\t\t<p><a href=\"{$fileNames['messages']}?username={$userProfile['username']}\">Message</a></p>\n");
 							}
 						}
-						echo("\t\t<p><a href=\"photo.php?username={$userProfile['username']}\">{$userProfile['firstname']} {$userProfile['lastname']}'s Gallery</a></p>\n");
+						echo("\t\t<p><a href=\"{$fileNames['photo']}?username={$userProfile['username']}\">{$userProfile['firstname']} {$userProfile['lastname']}'s Gallery</a></p>\n");
 					} else {
 						echo("\t\t<p>{$noPermission}</p>\n");
 					}
@@ -69,13 +69,13 @@
 				<input type='submit' name='viewProfile' value='<?=$profileToggle?>'>
 			</form>
 <?
-						include("{$fileName}.php"); // defined in userProcess.php for toggle.
+						include("{$fileNames[$fileName]}"); // defined in userProcess.php for toggle.
 					}
 				}
 ?>
 		</div>
 <?
-			include('footer.php');
+			include($fileNames['footer']);
 ?>
 	</body>
 </html>

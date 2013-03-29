@@ -1,8 +1,8 @@
 <?
-	include('inc.php');
+	include($fileNames['inc']);
 	if ($loggedIn) {
-		include('feed.php');
-		include('postProcess.php');
+		include($fileNames['feed']);
+		include($fileNames['postProcess']);
 	}
 ?>
 
@@ -11,24 +11,24 @@
 <html>
 	<head>
 		<title><?=$siteName?></title>
-		<? include('head.php'); ?>
+		<? include($fileNames['head']); ?>
 	</head>
 	<body>
-		<? include('header.php'); ?>
+		<? include($fileNames['header']); ?>
 		<div id="main">
 			<h2>Hello!</h2>
 			<p>Welcome to <?=$siteName?></p>
 			<?
-				include('login/loginForm.php');
-				include('searchResults.php');
+				include($fileNames['loginForm']);
+				include($fileNames['searchResults']);
 				if ($loggedIn) {
-					include 'submitPost.php';
-					include 'viewPosts.php';
+					include($fileNames['submitPost']);
+					include($fileNames['viewPosts']);
 				}
 			?>
 		</div>
 		<?
-			include('footer.php');
+			include$fileNames[('footer']);
 		?>
 	</body>
 </html>
