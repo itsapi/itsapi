@@ -304,5 +304,32 @@ END;
 				
 				'photoProcess' => 'photo/photoProcess.php',
 				'photoUpload' => 'photo/photoUpload.php',
-				'photoUploadRedirect' => 'photo/photoUploadRedirect.php'
+				'photoUploadRedirect' => 'photo/photoUploadRedirect.php',
+
+				//Posts Files
+
+				'displayPosts' => 'posts/displayPosts.php',
+				'editPost' => 'posts/editPost.php',
+				'feed' => 'posts/feed.php',
+				'postProcess' => 'posts/postProcess.php',
+				'submitPost' => 'posts/submitPost.php',
+				'viewPosts' => 'posts/viewPosts.php',
+
+				//Search Files
+
+				'search' => 'search/search.php',
+				'searchRelevance' => 'search/searchRelevance.php',
+				'searchResults' => 'search/searchResults.php',
+
+				//Settings Files
+
+				'saveSettings' => 'settings/saveSettings.php',
+				'settingsForm' => 'settings/settingsForm.php',
+
+				//User Files
+
+				'userInfo' => 'user/userInfo.php',
+				'userPosts' => 'user/userPosts.php',
+				'userPostsProcess' => 'user/userPostsProcess.php',
+				'userProcess' => 'user/userProcess.php'
 	];
