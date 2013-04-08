@@ -225,3 +225,111 @@ END;
 	
 	$deleteProfileFail = 'Failed to delete your profile.';
 	$verifyTimeOut = 604800;
+	
+	
+	$fileNames = [
+
+				//Core Files
+
+				'index' => 'index.php',
+				'messages' => 'messages.php',
+				'photo' => 'photo.php',
+				'post' => 'post.php',
+				'settings' => 'settings.php',
+				'user' => 'user.php',
+				'viewPhoto' => 'viewPhoto.php',
+				
+				//Comments Files
+				
+				'commentProcess' => 'comments/commentProcess.php',
+				'submitComment' => 'comments/submitComment.php',
+				'viewComments' => 'comments/viewComments',
+				
+				//CSS Files
+				
+				'style' => 'css/style.css',
+				'normalize' => 'css/normalize.css',
+				
+				//Friends Files
+				
+				'addFriend' => 'friends/addFriend.php',
+				'deleteFriend' => 'friends/deleteFriend.php',
+				'friends' => 'friends/friends.php',
+				'showAddFriend' => 'friends/showAddFriend.php',
+				'viewFriends' => 'friends/viewFriends.php',
+				
+				//Include Files
+				
+				'clearUsers' => 'include/clearUsers.php',
+				'conf' => 'include/footer.php',
+				'footer' => 'include/footer.php',
+				'funcs' => 'include/funcs.php',
+				'head' => 'include/head.php',
+				'header' => 'include/header.php',
+				'inc' => 'include/inc.php',
+				'mailConf' => 'include/mailConf.php',
+				'mysql' => 'include/mysql.php',
+				'pageViewable' => 'include/pageViewable.php',
+				
+				//JavaScript Files
+				
+				'google' => 'js/google.js',
+				'ajax' => 'js/ajax.js',
+				
+				//Login Files
+				
+				'loggedIn' => 'login/loggedIn.php',
+				'loggingIn' => 'login/loggingIn.php',
+				'login' => 'login/login.php',
+				'loginForm' => 'login/loginForm.php',
+				'logout' => 'login/logout.php',
+				'register' => 'login/register.php',
+				'verify' => 'login/verify.php',
+				'verifying' => 'login/verifying.php',
+				
+				//Messages Files
+				
+				'messageView' => 'messages/messageView.php',
+				'sendMessage' => 'messages/sendMessage.php',
+				
+				//Notifications Files
+				
+				'deleteAllNotifications' => 'notifications/deleteAllNotifications.php',
+				'deleteNotification' => 'notifications/deleteNotification.php',
+				'notificationCount' => 'notifications/notificationCount.php',
+				'notifications' => 'notifications/notifications.php',
+				'viewNotifications' => 'notifications/viewNotifications.php',
+				
+				//Photo Files
+				
+				'photoProcess' => 'photo/photoProcess.php',
+				'photoUpload' => 'photo/photoUpload.php',
+				'photoUploadRedirect' => 'photo/photoUploadRedirect.php',
+
+				//Posts Files
+
+				'displayPosts' => 'posts/displayPosts.php',
+				'editPost' => 'posts/editPost.php',
+				'feed' => 'posts/feed.php',
+				'postProcess' => 'posts/postProcess.php',
+				'submitPost' => 'posts/submitPost.php',
+				'viewPosts' => 'posts/viewPosts.php',
+
+				//Search Files
+
+				'search' => 'search/search.php',
+				'searchRelevance' => 'search/searchRelevance.php',
+				'searchResults' => 'search/searchResults.php',
+
+				//Settings Files
+
+				'saveSettings' => 'settings/saveSettings.php',
+				'settingsForm' => 'settings/settingsForm.php',
+
+				//User Files
+
+				'userInfo' => 'user/userInfo.php',
+				'userPosts' => 'user/userPosts.php',
+				'userPostsProcess' => 'user/userPostsProcess.php',
+				'userProcess' => 'user/userProcess.php'
+	];

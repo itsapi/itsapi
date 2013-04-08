@@ -18,7 +18,7 @@
 			$image = mysqli_fetch_assoc($result);
 			$userProfile = userData($image['uid'], $mysqli, 'uid');
 			
-			include('pageViewable.php');
+			include($fileNames['pageViewable']);
 			
 			if ($pageViewable) {
 				$image = $image['image'];
@@ -49,5 +49,5 @@
 			echo $image;
 		}
 	} else {
-		header('location: index.php');
+		header('location: ' . $fileNames['index']);
 	}

@@ -1,6 +1,6 @@
 <?
-	include('inc.php');
-	include('photoprocess.php');
+	include($fileNames['inc']);
+	include($fileNames['photoprocess']);
 ?>
 
 <!DOCTYPE html>
@@ -8,15 +8,15 @@
 <html>
 	<head>
 		<title><?=$siteName?></title>
-		<? include('head.php'); ?>
+		<? include($fileNames['head']); ?>
 	</head>
 	<body>
-		<? include('header.php'); ?>
+		<? include($fileNames['header']); ?>
 		<div id="main">
-			<h2><?='<a href="user.php?username=' . $userProfile['username'] . '">' . $userProfile['firstname'] . ' ' . $userProfile['lastname']?></a>'s Gallery</h2>
+			<h2><?='<a href="' . $fileNames['user'] . '?username=' . $userProfile['username'] . '">' . $userProfile['firstname'] . ' ' . $userProfile['lastname']?></a>'s Gallery</h2>
 <?
-				include('login/loginForm.php');
-				include('searchResults.php');
+				include($fileNames['loginForm']);
+				include($fileNames['searchResults']);
 				
 				if ($loggedIn) {
 					if ($currentUser['username'] == $userProfile['username']) {	
@@ -34,20 +34,20 @@
 			<h3 id="photoTitle"><?=$images[$key]['title']?></h3>
 			<h4><?=($key + 1) . '/' . (count($images))?></h4>
 			<p>Uploaded on <?=date('d/m/y G:i', $images[$key]['date'])?></p>
-			<a href="viewPhoto.php?iid=<?=$images[$key]['iid']?>" target="_blank"><img src="viewPhoto.php?iid=<?=$images[$key]['iid']?>&size=<?=$profilePagePictureSize?>" alt="<?=$images[$key]['title']?>"></a>
+			<a href="<?=$fileNames['viewPhoto']?>?iid=<?=$images[$key]['iid']?>" target="_blank"><img src="<?=$fileNames['viewPhoto']?>?iid=<?=$images[$key]['iid']?>&size=<?=$profilePagePictureSize?>" alt="<?=$images[$key]['title']?>"></a>
 
-			<form action="javascript: copyToClipboard('<?=$domain?>/photo.php?iid=<?=$images[$key]['iid']?>&username=<?=$userProfile['username']?>#photoTitle')">
+			<form action="javascript: copyToClipboard('<?=$domain?>/<?=$fileNames['photo']?>?iid=<?=$images[$key]['iid']?>&username=<?=$userProfile['username']?>#photoTitle')">
 				<input type="submit" value="Get image link">
 			</form>
 <?
 					if ($loggedIn) {
 						if ($currentUser['uid'] == $userProfile['uid']) {
 ?>
-			<form action="photo.php?iid=<?=$images[$key]['iid']?>" method="post">
+			<form action="<?=$fileNames['photo']?>?iid=<?=$images[$key]['iid']?>" method="post">
 				<input type="text" value="<?=$images[$key]['iid']?>" name="profileImage" hidden>
 				<input type="submit" value="Set as profile picture" name="setProfile">
 			</form>
-			<form action="photo.php?iid=<? if ($prev != $images[$key]['iid']) { echo $prev; } else { echo $next; }?>" method="post">
+			<form action="<?=$fileNames['photo']?>?iid=<? if ($prev != $images[$key]['iid']) { echo $prev; } else { echo $next; }?>" method="post">
 				<input type="text" value="<?=$images[$key]['iid']?>" name="profileImage" hidden>
 				<input type="submit" value="Delete" name="deleteImage">
 			</form>
@@ -84,7 +84,7 @@
 ?>
 		</div>
 		<?
-			include('footer.php');
+			include($fileNames['footer']);
 		?>
 	</body>
 </html>
