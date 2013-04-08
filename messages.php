@@ -109,22 +109,25 @@
 							}
 						}
 					}
-
-					$clean = [];
-					foreach ($uidsForMessages as $uidForMessages) {
-						if (!in_array($uidForMessages, $clean)) {
-							$clean[] = $uidForMessages;
+					if (isset($uidsForMessages)) {
+						$clean = [];
+						foreach ($uidsForMessages as $uidForMessages) {
+							if (!in_array($uidForMessages, $clean)) {
+								$clean[] = $uidForMessages;
+							}
 						}
-					}
 
-					sort($clean);
+						sort($clean);
 
-					echo '<ul>';
-					foreach ($clean as $uid) {
-						$user = userData($uid, $mysqli, 'uid');
-						echo str_replace(['{username}', '{firstname}', '{lastname}'], [$user['username'], $user['firstname'], $user['lastname']], "<li>{firstname} {lastname} <a href=\"messages.php?username={username}\">View messages</a></li>\n");
+						echo '<ul>';
+						foreach ($clean as $uid) {
+							$user = userData($uid, $mysqli, 'uid');
+							echo str_replace(['{username}', '{firstname}', '{lastname}'], [$user['username'], $user['firstname'], $user['lastname']], "<li>{firstname} {lastname} <a href=\"messages.php?username={username}\">View messages</a></li>\n");
+						}
+						echo '</ul>';
+					} else {
+						echo wrap('p', $noFriends, 'error');
 					}
-					echo '</ul>';
 				}
 ?>
 		</div>
