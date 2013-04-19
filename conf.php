@@ -6,7 +6,7 @@
 	$siteName = "It's a Pi!";
 	$domain = 'itsapi.no-ip.org';
 
-	$specialMsg = "Thank you for beta-testing It's a Pi!";
+	$specialMsg = "Thank you for beta-testing It's a Pi! Please PM admins <a href=\"messages.php?username=olls\">Olls</a> or <a href=\"messages.php?username=grit96\">Grit96</a>.";
 	
 	$passLength = 8;
 	$userLength = 3;
