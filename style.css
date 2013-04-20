@@ -50,7 +50,20 @@ footer {
 	position: relative;
 	top: 40px;
 }
-
+#notNum {
+	position: absolute;
+	text-align: center;
+	color: white;
+	font-size: 10px;
+	top: 35px;
+	right: -10px;
+	width: 20px;
+	height: 20px;
+	background: #999;
+	border: 2px solid white;
+	border-radius: 20px;
+	z-index: 100;
+}
 #msg {
 	position: fixed;
 	top: 50px;
