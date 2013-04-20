@@ -29,7 +29,7 @@
 	
 	if ($notLoggedIn) { // Not logged on:
 		if (isset($_POST['login'])) { // Logging in:
-			include($fileNames['loggedIn']);
+			include($fileNames['loggingIn']);
 		} else {
 			$loggedIn = False;
 		}
