@@ -36,12 +36,12 @@
 					elem.parentNode.removeChild(elem)
 				}
 			}
-			function notificationLabel() {
-				formAction('notificationCount.php', ['viewNotifications'], 'buttonValue')
-				var s = document.getElementById('viewNotifications')
-				s.value = document.getElementById('buttonValue').innerText
-			}
 			function copyToClipboard (text) {
 				window.prompt ("Copy to clipboard: Ctrl+C, Enter", text);
 			}
+			var timeout = 30000;
+			var action = function() {
+				formAction('notificationCount.php', ['viewNotifications'], 'notNum')
+			};
+			setInterval(action, timeout);
 		</script>
