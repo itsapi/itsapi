@@ -1,7 +1,9 @@
 <?
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
-	
+
+	include('include/inc.php');
+
 	header('Content-Type: image/jpg');
 	
 	if (isset($_GET['iid'])) {
@@ -10,9 +12,7 @@
 		$defaultImage = fread($defaultProfileImageFile, filesize('default.png'));
 		fclose($defaultProfileImageFile);
 		
-		if ($_GET['iid'] != '') {
-			include($fileNames['inc']);
-			
+		if ($_GET['iid'] != '') {			
 			$iid = mysqli_real_escape_string($mysqli, $_GET['iid']);
 			$result = query_DB($mysqli, "SELECT * FROM images WHERE iid={$iid}");
 			$image = mysqli_fetch_assoc($result);
