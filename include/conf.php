@@ -184,7 +184,7 @@ END;
 	$givePiFail = 'Failed to Give Pi';
 	$givePiAlready = 'Already Given Pi';
 	
-	include 'mailConf.php';
+	include 'include/mailConf.php';
 	
 	$photoDeleteSuccess = 'Your photo was deleted.';
 
@@ -243,7 +243,7 @@ END;
 				
 				'commentProcess' => 'comments/commentProcess.php',
 				'submitComment' => 'comments/submitComment.php',
-				'viewComments' => 'comments/viewComments',
+				'viewComments' => 'comments/viewComments.php',
 				
 				//CSS Files
 				

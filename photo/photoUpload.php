@@ -23,7 +23,7 @@
 			if ($result) {
 				$uploadedIid = mysqli_fetch_assoc($result)['iid'];
 				print_r($imageSize);
-				header("location: photoUploadRedirect.php?iid={$uploadedIid}");
+				header("location: {$fileNames['photoUploadRedirect']}?iid={$uploadedIid}");
 			}
 		}
 	}

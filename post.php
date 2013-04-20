@@ -1,5 +1,5 @@
 <?
-	include($fileNames['inc']);
+	include('include/inc.php');
 	$postPage = True;
 	include($fileNames['postProcess']);
 	

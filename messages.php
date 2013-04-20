@@ -1,5 +1,5 @@
 <?
-	include($fileNames['inc']);
+	include('include/inc.php');
 ?>
 
 <!DOCTYPE html>
@@ -122,7 +122,7 @@
 						echo '<ul>';
 						foreach ($clean as $uid) {
 							$user = userData($uid, $mysqli, 'uid');
-							echo str_replace(['{username}', '{firstname}', '{lastname}'], [$user['username'], $user['firstname'], $user['lastname']], "<li>{firstname} {lastname} <a href=\"messages.php?username={username}\">View messages</a></li>\n");
+							echo str_replace(['{username}', '{firstname}', '{lastname}'], [$user['username'], $user['firstname'], $user['lastname']], "<li>{firstname} {lastname} <a href=\"{$fileNames['messages']}?username={username}\">View messages</a></li>\n");
 						}
 						echo '</ul>';
 					} else {

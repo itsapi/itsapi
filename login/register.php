@@ -53,7 +53,7 @@
 					echo queryError($mysqli);
 				} else {
 					$msg .= wrap('p',str_replace('{username}', $signUp_username, $registerWelcome));
-					include('verifying.php');
+					include($fileNames['verifying']);
 				}
 			} else {
 				$msg .= $errorMsgs['takenUsername'];

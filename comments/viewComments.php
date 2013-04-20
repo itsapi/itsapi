@@ -28,7 +28,7 @@
 			$cid = $comment['cid'];
 			$profileData = userData($comment['uid'], $mysqli, 'uid');
 			$name = $profileData['firstname'] . ' ' . $profileData['lastname'];
-			echo "\n\t\t\t\t\t<li>\n\t\t\t\t\t\t<a href=\"user.php?username={$profileData['username']}\">" . profileImage($profileData, 'profilePhoto', $thumbnailSize) . $name . "</a> - " . removeLines(detectURL($comment['content'], False)) . ' ' . "\n\t\t\t\t\t\t<span class=\"date\">" . date('d/m/y G:i', $comment['date']) . '</span>';
+			echo "\n\t\t\t\t\t<li>\n\t\t\t\t\t\t<a href=\"{$fileNames['user']}?username={$profileData['username']}\">" . profileImage($profileData, 'profilePhoto', $thumbnailSize) . $name . "</a> - " . removeLines(detectURL($comment['content'], False)) . ' ' . "\n\t\t\t\t\t\t<span class=\"date\">" . date('d/m/y G:i', $comment['date']) . '</span>';
 			if ($loggedIn) {
 				if ($comment['uid'] == $currentUser['uid']) {
 					echo "\n\n\t\t\t\t\t\t<form method=\"post\" action=\"" . keepUrl() . "\" style=\"display: inline\">\n\t\t\t\t\t\t\t<input type=\"text\" name=\"deleteComment\" value=\"{$comment['cid']}\" hidden>\n\t\t\t\t\t\t\t<input type=\"submit\" value=\"Delete\">\n\t\t\t\t\t\t</form>";

@@ -11,7 +11,7 @@
 		fclose($defaultProfileImageFile);
 		
 		if ($_GET['iid'] != '') {
-			include('inc.php');
+			include($fileNames['inc']);
 			
 			$iid = mysqli_real_escape_string($mysqli, $_GET['iid']);
 			$result = query_DB($mysqli, "SELECT * FROM images WHERE iid={$iid}");

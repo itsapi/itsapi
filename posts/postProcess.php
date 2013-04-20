@@ -1,6 +1,6 @@
 <?
-	if (!isset($postPage) && $loggedIn) { include('submitComment.php'); }
-	include('commentProcess.php');
+	if (!isset($postPage) && $loggedIn) { include($fileNames['submitComment']); }
+	include($fileNames['commentProcess']);
 	
 	if (isset($_POST['deletePost'])) {
 		$deletePid = htmlspecialchars($_POST['deletePost'], ENT_QUOTES);

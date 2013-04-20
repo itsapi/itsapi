@@ -1,5 +1,5 @@
 <?
-	include 'inc.php';
+	include 'include/inc.php';
 
 	$notificationNum = numNotifications($mysqli, $currentUser);
 	$buttonText = $_GET['viewNotifications'];

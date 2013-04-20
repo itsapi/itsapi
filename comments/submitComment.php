@@ -16,7 +16,7 @@
 			if ($result3) {
 						$msg .= wrap('p', $commentSuccessful);
 						$title = "Comment from {$currentUser['firstname']} {$currentUser['lastname']}.";
-						$link = "{$domain}/post.php?pid={$pid}";
+						$link = "{$domain}/{$fileNames['post']}?pid={$pid}";
 						if ($puid != $uid) { notification($mysqli, $puid, $title, $link); }
 			} else {
 						$msg .= wrap('p', $commentFailed, 'error');

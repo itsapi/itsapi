@@ -1,5 +1,5 @@
 <?
-	include($fileNames['inc']);
+	include('include/inc.php');
 	include($fileNames['photoprocess']);
 ?>
 

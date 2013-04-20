@@ -1,5 +1,5 @@
 <?
-	include('inc.php');
+	include('include/inc.php');
 	
 	if (isset($_GET['pid'])) {
 		$pid = htmlspecialchars($_GET['pid'], ENT_QUOTES);
@@ -17,7 +17,7 @@
 			}
 		}
 	} else {
-		header('location: index.php');
+		header('location: ' . $fileNames['index']);
 	}
 ?>
 
@@ -26,7 +26,7 @@
 <html>
 	<head>
 		<title><?=$siteName?></title>
-		<? include('head.php'); ?>
+		<? include($fileNames['head']); ?>
 		<?=$javascript?>
 	</head>
 	<body>

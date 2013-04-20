@@ -1,5 +1,7 @@
 <?
-	include($fileNames['inc']);
+	error_reporting(E_ALL);
+	ini_set('display_errors', 1);
+	include('include/inc.php');
 	if ($loggedIn) {
 		include($fileNames['feed']);
 		include($fileNames['postProcess']);
@@ -28,7 +30,7 @@
 			?>
 		</div>
 		<?
-			include$fileNames[('footer']);
+			include($fileNames['footer']);
 		?>
 	</body>
 </html>

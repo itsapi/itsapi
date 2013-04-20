@@ -1,6 +1,6 @@
 <?
 	if ($loggedIn) {
-		include 'submitPost.php';
+		include $fileNames['submitPost'];
 	}
 	
-	include 'viewPosts.php';
+	include $fileNames['viewPosts'];

@@ -1,10 +1,10 @@
 <?
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
-	include('mysql.php');
-	include('conf.php');
-	include('funcs.php');
-	include('login/login.php');
-	include('search.php');
+	include('include/conf.php');
+	include($fileNames['mysql']);
+	include($fileNames['funcs']);
+	include($fileNames['login']);
+	include($fileNames['search']);
 	$topProfileToggle = $viewPostsButtonTxt;
 ?>

@@ -19,18 +19,18 @@
 		
 		$name = $currentUser['firstname'] . ' ' . $currentUser['lastname'];
 		$title = str_replace('{name}', $name, $nowFriends);
-		$link = "{$domain}/user.php?username={$currentUser['username']}";
+		$link = "{$domain}/{$fileNames['user']}?username={$currentUser['username']}";
 		notification($mysqli, $uid2, $title, $link);
 		
-		header("location: user.php?username={$userProfile['username']}");
+		header("location: {$fileNames['user']}?username={$userProfile['username']}");
 	} else {
 		$query = "INSERT INTO `friends` (`uid1`, `uid2`, `acc1`, `acc2`) VALUES ('{$uid1}', '{$uid2}', 1, 0)";
 		$result = query_DB($mysqli, $query);
 		
 		$name = $currentUser['firstname'] . ' ' . $currentUser['lastname'];
 		$title = "Friend request from {$name}.";
-		$link = "{$domain}/user.php?uid={$uid1}&username={$currentUser['username']}";
+		$link = "{$domain}/{$fileNames['user']}?uid={$uid1}&username={$currentUser['username']}";
 		notification($mysqli, $uid2, $title, $link);
 		
-		header("location: user.php?username={$userProfile['username']}");
+		header("location: {$fileNames['user']}?username={$userProfile['username']}");
 	}

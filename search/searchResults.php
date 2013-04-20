@@ -27,11 +27,11 @@
 					$rows[] = $row;
 				}
 				
-				include 'searchRelevance.php';
+				include $fileNames['searchRelevance'];
 				
 				echo $searchTableTableFormat[0];
 				foreach ($rows as $row) {
-					echo str_replace('{link}', "user.php?username={$row['username']}", $searchTableRowFormat[0]);
+					echo str_replace('{link}', "{$fileNames['user']}?username={$row['username']}", $searchTableRowFormat[0]);
 					foreach ($row as $key=>$value) {
 						if (in_array($key, $searchTableHeadings)) {
 							echo $searchTableCellFormat[0] . $value . $searchTableCellFormat[1];
