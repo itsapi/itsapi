@@ -37,7 +37,7 @@
 	} else {
 		echo("\n\t\t<section id=\"posts\">\n\t\t\t<form method=\"post\" action=\"" . keepUrl() . "\">\n\t\t\t\t<input type=\"text\" name=\"postsOffset\" value=\"{$postsOffset}\" hidden>\n\t\t\t\t<input type=\"submit\" name=\"newer\" value=\"Show Newer\">\n\t\t\t</form>\n\n\t\t\t<ul>");
 		while ($row = mysqli_fetch_assoc($result)) {
-			include 'displayPosts.php';
+			include $fileNames['displayPosts'];
 		}
 		echo("\n\t\t\t</ul>\n\n\t\t\t<form method=\"post\" action=\"" . keepUrl() . "\">\n\t\t\t\t<input type=\"text\" name=\"postsOffset\" value=\"{$postsOffset}\" hidden>\n\t\t\t\t<input type=\"submit\" name=\"older\" value=\"Show Older\">\n\t\t\t</form>\n\t\t</section>\n");
 	}

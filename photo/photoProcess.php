@@ -17,15 +17,15 @@
 			$userProfile = $currentUser;
 			$userExists = True;
 		} else {
-			header ('location: index.php');
+			header ('location: ' . $fileNames['index']);
 			$userExists = False;
 		}
 	}
 	$profileName = $userProfile['firstname'] . ' ' . $userProfile['lastname'];
-	include('pageViewable.php');
+	include($fileNames['pageViewable']);
 
 	if (isset($_POST['photoTitle']) && $currentUser == $userProfile) {
-		include('photoUpload.php');
+		include($fileNames['photoUpload']);
 	}
 	
 	$photoExists = True;

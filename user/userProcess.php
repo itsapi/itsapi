@@ -17,16 +17,16 @@
 			$userProfile = $currentUser;
 			$userExists = True;
 		} else {
-			header ('location: index.php');
+			header ('location: ' . $fileNames['index']);
 			$userExists = False;
 		}
 	}
 	$profileName = $userProfile['firstname'] . ' ' . $userProfile['lastname'];
-	include('pageViewable.php');
+	include($fileNames['pageViewable']);
 	
 	if ($loggedIn) {
 		if (isset($_REQUEST['uid'])) {
-			include('addFriend.php');
+			include($fileNames['addFriend']);
 		}
 	}
 	if ($pageViewable) {

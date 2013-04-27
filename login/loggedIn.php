@@ -8,7 +8,7 @@
 	}
 	
 	if (isset($_POST['logout'])) { // Logging out
-		include('login/logout.php');
+		include($fileNames['logout']);
 	} else {
 		$currentUser = userData($username, $mysqli);
 	}

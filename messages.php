@@ -1,5 +1,5 @@
 <?
-	include('inc.php');
+	include('include/inc.php');
 ?>
 
 <!DOCTYPE html>
@@ -7,18 +7,18 @@
 <html>
 	<head>
 		<title><?=$siteName?></title>
-		<? include('head.php'); ?>
+		<? include($fileNames['head']); ?>
 	</head>
 	<body>
-		<? include('header.php'); ?>
+		<? include($fileNames['header']); ?>
 		<div id="main">
 			<h2>Messages</h2>
 <?
-				if (!$loggedIn) { header('location: index.php'); }
+				if (!$loggedIn) { header('location: ' . $fileNames['index']); }
 				
 				if (isset($_GET['username'])) {
 					if ($_GET['username'] == $currentUser['username']) {
-						header('location: messages.php');
+						header('location: ' . $fileNames['messages']);
 					}
 					$messagesOffset = 0;
 					$uidTo = userData(htmlspecialchars($_GET['username'], ENT_QUOTES), $mysqli)['uid'];
@@ -50,15 +50,15 @@
 						$profileData = userData(htmlspecialchars($_GET['username'],ENT_QUOTES), $mysqli);
 						$name = $profileData['firstname'] . " " . $profileData['lastname'];
 						$userViewingUsername = htmlspecialchars($_GET['username'], ENT_QUOTES);
-						echo("\nReturn to <a href=\"user.php?username={$userViewingUsername}\">{$name}.</a>");
+						echo("\nReturn to <a href=\"{$fileNames['user']}?username={$userViewingUsername}\">{$name}.</a>");
 					}
 				}
-				include('login/loginForm.php');
-				include('searchResults.php');
+				include($fileNames['loginForm']);
+				include($fileNames['searchResults']);
 				
 				if (isset($_GET['username']) && $userExists) {
 					
-					echo "<form action=\"messages.php?username={$_GET['username']}\" method=\"post\"><input type=\"submit\" name=\"older\" value=\"Show Older\"><ul>";
+					echo "<form action=\"{$fileNames['messages']}?username={$_GET['username']}\" method=\"post\"><input type=\"submit\" name=\"older\" value=\"Show Older\"><ul>";
 ?>
 					<section id="messagesList">
 					
@@ -66,7 +66,7 @@
 <?
 					echo "</ul><input type=\"text\" id=\"messagesOffset\" name=\"messagesOffset\" value=\"{$messagesOffset}\" hidden><input type=\"submit\" name=\"newer\" value=\"Show Newer\"></form>";
 ?>
-	<form action="javascript: formAction('sendMessage.php', ['messageText', 'username'], ''); document.getElementById('messageText').value = '';">
+	<form action="javascript: formAction('<?=$fileNames['sendMessage']?>', ['messageText', 'username'], ''); document.getElementById('messageText').value = '';">
 		<input type="text" id="messageText" autofocus>
 		<input type="text" id="username" value="<?=$_GET['username']?>" hidden>
 		<input type="submit" value="Send">
@@ -74,7 +74,7 @@
 				<script>
 					var timeout = 1000;
 					var action = function() {
-						formAction('messageView.php', ['messagesOffset', 'username'], 'messagesList');
+						formAction('<?=$fileNames['messageView']?>', ['messagesOffset', 'username'], 'messagesList');
 					};
 					setInterval(action, timeout);				
 					
@@ -122,7 +122,7 @@
 						echo '<ul>';
 						foreach ($clean as $uid) {
 							$user = userData($uid, $mysqli, 'uid');
-							echo str_replace(['{username}', '{firstname}', '{lastname}'], [$user['username'], $user['firstname'], $user['lastname']], "<li>{firstname} {lastname} <a href=\"messages.php?username={username}\">View messages</a></li>\n");
+							echo '<li>' . profileImage($user, 'smallProfilePhoto', 20) . str_replace(['{username}', '{firstname}', '{lastname}'], [$user['username'], $user['firstname'], $user['lastname']], "{firstname} {lastname} <a href=\"{$fileNames['messages']}?username={username}\">View messages</a></li>\n");
 						}
 						echo '</ul>';
 					} else {
@@ -132,8 +132,7 @@
 ?>
 		</div>
 <?
-			include('footer.php');
+			include($fileNames['footer']);
 ?>
 	</body>
 </html>
-

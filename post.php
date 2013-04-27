@@ -1,10 +1,10 @@
 <?
-	include('inc.php');
+	include('include/inc.php');
 	$postPage = True;
-	include('postProcess.php');
+	include($fileNames['postProcess']);
 	
 	if (!isset($_GET['pid'])) {
-		header ('location: index.php');
+		header ('location: ' . $fileNames['index']);
 	}
 	
 	$singlePost = True;
@@ -28,36 +28,36 @@
 <html>
 	<head>
 		<title>Post <? if (mysqli_num_rows($postResult) != 0) { echo $row['pid']; } ?></title>
-		<? include('head.php'); ?>
+		<? include($fileNames['head']); ?>
 	</head>
 	<body>
-		<? include('header.php'); ?>
+		<? include($fileNames['header']); ?>
 		<div id="main">
 <?
 		if (mysqli_num_rows($postResult) != 0) {
 ?>
-			<h2><a href="user.php?username=<?=$profileData['username']?>"><?=$name?></a></h2>
+			<h2><a href="<?=$fileNames['user']?>?username=<?=$profileData['username']?>"><?=$name?></a></h2>
 <?
 		}
 		
-		include('login/loginForm.php');
-		include('searchResults.php');
+		include($fileNames['loginForm']);
+		include($fileNames['searchResults']);
 		
 		if (mysqli_num_rows($postResult) != 0) {
 			
 			if ($loggedIn) {
 				$uid = $currentUser['uid'];
-				include('submitComment.php');
+				include($fileNames['submitComment']);
 			}
 			
-			include 'displayPosts.php';
+			include($fileNames['displayPosts']);
 		} else {
 			echo $postNotExist;
 		}
 ?>
 		</div>
 <?
-				include('footer.php');
+				include($fileNames['footer']);
 ?>
 	</body>
 </html>

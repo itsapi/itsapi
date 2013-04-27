@@ -12,19 +12,19 @@
 ?>
 
 		<section id="loggedInOpt">
-			<form method="post" action="user.php?username=<?= $username ?>">
+			<form method="post" action="<?=$fileNames['user']?>?username=<?= $username ?>">
 				<input type="submit" value="<?= $username ?>">
 			</form>
 			<form method="post" action="<?= keepUrl() ?>">
 				<input type="submit" name="logout" value="Logout">
 			</form>
-			<form method="post" action="settings.php">
+			<form method="post" action="<?=$fileNames['settings']?>">
 				<input type="submit" value="Settings">
 			</form>
-			<form method="post" action="photo.php">
+			<form method="post" action="<?=$fileNames['photo']?>">
 				<input type="submit" value="Photos">
 			</form>
-			<form method="post" action="messages.php">
+			<form method="post" action="<?=$fileNames['messages']?>">
 				<input type="submit" value="Messages">
 			</form>
 		</section>

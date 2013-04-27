@@ -150,7 +150,7 @@
 								
 								$name = $currentUser['firstname'] . ' ' . $currentUser['lastname'];
 								$title = $message = str_replace(['{name}','{type}', '{notName}'], [$name, $type, $notName], $GLOBALS['receivedPiMsg']);
-								$link = "{$GLOBALS['domain']}/post.php?pid={$pid}";
+								$link = "{$GLOBALS['domain']}/{$GLOBALS['fileNames']['post']}?pid={$pid}";
 								
 								notification($mysqli, $notInfo['uid'], $title, $link);
 							}
@@ -202,7 +202,7 @@
 	
 	function verify($userData, $verifyCode) {
 			query_DB($GLOBALS['mysqli'], "UPDATE users SET lastActivity='" . time() . "' WHERE username='" . $userData['username'] . "'");
-			$verifyURL = "{$GLOBALS['domain']}/index.php?verify={$verifyCode}&user={$userData['username']}";
+			$verifyURL = "{$GLOBALS['domain']}/{$GLOBALS['fileNames']['index']}?verify={$verifyCode}&user={$userData['username']}";
 			$subject =  str_replace('{siteName}', $GLOBALS['siteName'], $GLOBALS['verifySubject']);
 			$message = str_replace(['{subject}', '{username}', '{siteName}', '{verifyURL}'], [$subject, $userData['username'], $GLOBALS['siteName'], $verifyURL], $GLOBALS['verifyMsg']);
 			
@@ -215,7 +215,7 @@
 	}
 	
 	function profileImage($userProfile, $imgClass='profilePhoto', $size=500) {
-		return "<img src=\"viewPhoto.php?iid={$userProfile['iid']}&size={$size}\" alt=\"{$userProfile['username']}'s picture\" class=\"{$imgClass}\">";
+		return "<img src=\"{$GLOBALS['fileNames']['viewPhoto']}?iid={$userProfile['iid']}&size={$size}\" alt=\"{$userProfile['username']}'s picture\" class=\"{$imgClass}\">";
 	}
 	
 	function updateProfileImage($uid, $iid, $mysqli) {
@@ -286,7 +286,7 @@
 		$resetPassCode = randNumber($GLOBALS['resetPassLength']);
 		query_DB($mysqli, "UPDATE users SET passReset='{$resetPassCode}' WHERE username='{$username}'");
 		$userData = userData($username, $mysqli);
-		$resetURL = "{$GLOBALS['domain']}/index.php?resetPass={$resetPassCode}&user={$username}";
+		$resetURL = "{$GLOBALS['domain']}/{$GLOBALS['fileNames']['index']}?resetPass={$resetPassCode}&user={$username}";
 		$subject =  $GLOBALS['passwordReset'];
 		$message = str_replace(['{subject}', '{resetURL}'], [$subject, $resetURL], $GLOBALS['passwordResetMsg']);
 		
@@ -326,7 +326,7 @@
 		$changeEmailCode = randNumber($GLOBALS['changeEmailLength']);
 		query_DB($mysqli, "UPDATE users SET changeEmail='{$changeEmailCode}' WHERE username='{$username}'");
 		$userData = userData($username, $mysqli);
-		$resetURL = "{$GLOBALS['domain']}/index.php?changeEmail={$changeEmailCode}&user={$username}&email={$emailAddress}";
+		$resetURL = "{$GLOBALS['domain']}/{$GLOBALS['fileNames']['index']}?changeEmail={$changeEmailCode}&user={$username}&email={$emailAddress}";
 		$subject =  $GLOBALS['changeEmailRequest'];
 		$message = str_replace(['{subject}', '{emailAddress}', '{resetURL}'], [$subject, $emailAddress, $resetURL], $GLOBALS['changeEmailMsg']);
 		$result = email($userData, $subject, $message);
@@ -368,7 +368,7 @@
 			return $GLOBALS['deleteProfileFail'];
 		} else {
 			$loggedIn = logout();
-			header('location: index.php');
+			header('location: ' . $GLOBALS['fileNames']['index']);
 		}
 	}
 	
@@ -420,7 +420,7 @@
 					if (stripos($completeUrl, 'youtube.com/watch?v=')) {
 						$youtubeWatchCode = explode('&', explode('?v=', $completeUrl)[1])[0];
 						$output .= '<iframe width="560" height="350" src="http://www.youtube.com/embed/' . $youtubeWatchCode . '?wmode=direct" frameborder="0" allowfullscreen></iframe>';
-					} elseif (preg_match('{\.[0-9]{1,3}}', $imgFile) || isset($validImg[$imgFile]) || stripos($completeUrl, 'viewPhoto.php?iid=')) {
+					} elseif (preg_match('{\.[0-9]{1,3}}', $imgFile) || isset($validImg[$imgFile]) || stripos($completeUrl, "{$GLOBALS['fileNames']['viewPhoto']}?iid=")) {
 						$output .= '<a href=' . $completeUrl . $target . '<img src=' . $completeUrl . '></a>';
 					} else {
 						$output .= '<a href=' . $completeUrl . $target . "$domain$port$path" . '</a>';
@@ -448,7 +448,7 @@
 		}
 
 		$text = nl2br($text);
-		return $text;
+		return textWrap($text);
 	}
 
 	function numNotifications($mysqli, $userProfile) {

@@ -184,7 +184,7 @@ END;
 	$givePiFail = 'Failed to Give Pi';
 	$givePiAlready = 'Already Given Pi';
 	
-	include 'mailConf.php';
+	include 'include/mailConf.php';
 	
 	$photoDeleteSuccess = 'Your photo was deleted.';
 
@@ -225,3 +225,112 @@ END;
 	
 	$deleteProfileFail = 'Failed to delete your profile.';
 	$verifyTimeOut = 604800;
+	
+	
+	$fileNames = [
+
+				//Core Files
+
+				'index' => 'index.php',
+				'messages' => 'messages.php',
+				'photo' => 'photo.php',
+				'post' => 'post.php',
+				'settings' => 'settings.php',
+				'user' => 'user.php',
+				'viewPhoto' => 'viewPhoto.php',
+				
+				//Comments Files
+				
+				'commentProcess' => 'comments/commentProcess.php',
+				'submitComment' => 'comments/submitComment.php',
+				'viewComments' => 'comments/viewComments.php',
+				
+				//CSS Files
+				
+				'style' => 'css/style.css',
+				'normalize' => 'css/normalize.css',
+				
+				//Friends Files
+				
+				'addFriend' => 'friends/addFriend.php',
+				'deleteFriend' => 'deleteFriend.php',
+				'friends' => 'friends/friends.php',
+				'showAddFriend' => 'friends/showAddFriend.php',
+				'viewFriends' => 'viewFriends.php',
+				
+				//Include Files
+				
+				'clearUsers' => 'clearUsers.php',
+				'conf' => 'include/footer.php',
+				'footer' => 'include/footer.php',
+				'funcs' => 'include/funcs.php',
+				'head' => 'include/head.php',
+				'header' => 'include/header.php',
+				'inc' => 'include/inc.php',
+				'mailConf' => 'include/mailConf.php',
+				'mysql' => 'include/mysql.php',
+				'pageViewable' => 'include/pageViewable.php',
+				
+				//JavaScript Files
+				
+				'google' => 'js/google.js',
+				'ajax' => 'js/ajax.js',
+				'javascript' => 'js/javascript.php',
+				
+				//Login Files
+				
+				'loggedIn' => 'login/loggedIn.php',
+				'loggingIn' => 'login/loggingIn.php',
+				'login' => 'login/login.php',
+				'loginForm' => 'login/loginForm.php',
+				'logout' => 'login/logout.php',
+				'register' => 'login/register.php',
+				'verify' => 'login/verify.php',
+				'verifying' => 'login/verifying.php',
+				
+				//Messages Files
+				
+				'messageView' => 'messageView.php',
+				'sendMessage' => 'sendMessage.php',
+				
+				//Notifications Files
+				
+				'deleteAllNotifications' => 'deleteAllNotifications.php',
+				'deleteNotification' => 'deleteNotification.php',
+				'notificationCount' => 'notificationCount.php',
+				'notifications' => 'notifications/notifications.php',
+				'viewNotifications' => 'viewNotifications.php',
+				
+				//Photo Files
+				
+				'photoProcess' => 'photo/photoProcess.php',
+				'photoUpload' => 'photo/photoUpload.php',
+				'photoUploadRedirect' => 'photo/photoUploadRedirect.php',
+
+				//Posts Files
+
+				'displayPosts' => 'posts/displayPosts.php',
+				'editPost' => 'editPost.php',
+				'feed' => 'posts/feed.php',
+				'postProcess' => 'posts/postProcess.php',
+				'submitPost' => 'posts/submitPost.php',
+				'viewPosts' => 'posts/viewPosts.php',
+
+				//Search Files
+
+				'search' => 'search/search.php',
+				'searchRelevance' => 'search/searchRelevance.php',
+				'searchResults' => 'search/searchResults.php',
+
+				//Settings Files
+
+				'saveSettings' => 'settings/saveSettings.php',
+				'settingsForm' => 'settings/settingsForm.php',
+
+				//User Files
+
+				'userInfo' => 'user/userInfo.php',
+				'userPosts' => 'user/userPosts.php',
+				'userPostsProcess' => 'user/userPostsProcess.php',
+				'userProcess' => 'user/userProcess.php'
+	];

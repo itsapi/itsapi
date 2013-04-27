@@ -9,6 +9,6 @@
 		$userFriends = $currentUser;
 	}
 	echo '<h4>Friends:</h4>';
-	friends($mysqli, $userFriends, "<a href=\"user.php?username={username}\">{firstname} {lastname}</a>");
+	friends($mysqli, $userFriends, "<a href=\"{$fileNames['user']}?username={username}\">{firstname} {lastname}</a>");
 	echo("\t\t</section>\n");
 ?>
