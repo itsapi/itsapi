@@ -1,7 +1,9 @@
 <?
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
-	
+
+	include('include/inc.php');
+
 	header('Content-Type: image/jpg');
 	
 	if (isset($_GET['iid'])) {
@@ -10,15 +12,13 @@
 		$defaultImage = fread($defaultProfileImageFile, filesize('default.png'));
 		fclose($defaultProfileImageFile);
 		
-		if ($_GET['iid'] != '') {
-			include('inc.php');
-			
+		if ($_GET['iid'] != '') {			
 			$iid = mysqli_real_escape_string($mysqli, $_GET['iid']);
 			$result = query_DB($mysqli, "SELECT * FROM images WHERE iid={$iid}");
 			$image = mysqli_fetch_assoc($result);
 			$userProfile = userData($image['uid'], $mysqli, 'uid');
 			
-			include('pageViewable.php');
+			include($fileNames['pageViewable']);
 			
 			if ($pageViewable) {
 				$image = $image['image'];
@@ -49,5 +49,5 @@
 			echo $image;
 		}
 	} else {
-		header('location: index.php');
+		header('location: ' . $fileNames['index']);
 	}

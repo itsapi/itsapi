@@ -16,7 +16,7 @@
 			$row = mysqli_fetch_assoc($result);
 			if ($row['verify'] == Null) {
 				$_SESSION['username'] = $loggingIn_username;
-				include('loggedIn.php');
+				include($fileNames['loggedIn']);
 				$msg .= wrap('p', str_replace('{username}', $username, $loginWelcome));
 				if ($_POST['rememberMe'] = 'remember') {
 					setcookie('username', $username, time()+60*60*24*30);

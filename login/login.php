@@ -7,7 +7,7 @@
 	if ((isset($_SESSION['username']) OR isset($_COOKIE['username']))) { // Logged on:
 		if (isset($_SESSION['username'])) {
 			if (mysqli_num_rows(query_DB($mysqli, "SELECT uid FROM users WHERE username='" . htmlspecialchars($_SESSION['username'], ENT_QUOTES) . "'")) != 0) {
-				include('login/loggedIn.php');
+				include($fileNames['loggedIn']);
 				$username = $_SESSION['username'];
 				$notLoggedIn = False;
 			} else {
@@ -15,7 +15,7 @@
 			}
 		} else {
 			if (mysqli_num_rows(query_DB($mysqli, "SELECT uid FROM users WHERE username='" . htmlspecialchars($_COOKIE['username'], ENT_QUOTES) . "'")) != 0) {
-				include('login/loggedIn.php');
+				include($fileNames['loggedIn']);
 				$username = $_COOKIE['username'];
 				$notLoggedIn = False;
 			} else {
@@ -29,12 +29,12 @@
 	
 	if ($notLoggedIn) { // Not logged on:
 		if (isset($_POST['login'])) { // Logging in:
-			include('login/loggingIn.php');
+			include($fileNames['loggingIn']);
 		} else {
 			$loggedIn = False;
 		}
 		if (isset($_POST['signup'])) { // Registering script:
-			include('login/register.php');
+			include($fileNames['register']);
 		}
 		if (isset($_POST['forgotPass'])) {
 			$msg .= forgotPass($mysqli, htmlspecialchars($_POST['forgotPassUser'], ENT_QUOTES));
@@ -50,7 +50,7 @@
 			$msg .= resetPass($mysqli, htmlspecialchars($_POST['resetPassUser'], ENT_QUOTES), htmlspecialchars($_POST['password'], ENT_QUOTES), htmlspecialchars($_POST['Vpassword'], ENT_QUOTES), htmlspecialchars($_POST['resetPassCode'], ENT_QUOTES));
 		}
 		if (isset($_GET['verify'])) {
-			include('login/verify.php');
+			include($fileNames['verify']);
 		}
 	}
 

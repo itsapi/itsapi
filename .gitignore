@@ -1,2 +1,2 @@
-mysql.php
-mailConf.php
+include/mysql.php
+include/mailConf.php
