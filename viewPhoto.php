@@ -22,7 +22,7 @@
 			
 			if ($pageViewable) {
 				if (isset($_GET['size']) && ($_GET['size'] <= 50)) {
-					if (isset($image['thumbnail']) {
+					if (isset($image['thumbnail'])) {
 						$image = $image['thumbnail'];
 					} else {
 						$image = $image['image'];
