@@ -448,7 +448,7 @@
 		}
 
 		$text = nl2br($text);
-		return $text;
+		return textWrap($text);
 	}
 
 	function numNotifications($mysqli, $userProfile) {
