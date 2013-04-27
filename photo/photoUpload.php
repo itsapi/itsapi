@@ -41,7 +41,7 @@
 		
 		list($width,$height)=getimagesize($tmpName);
 
-		$newwidth=60;
+		$newwidth=50;
 		$newheight=($height/$width)*$newwidth;
 		$thumbnail=imagecreatetruecolor($newwidth,$newheight);
 
