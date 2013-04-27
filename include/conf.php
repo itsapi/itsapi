@@ -114,7 +114,7 @@ END;
 	$messagesLimit = 20;
 	$postsLimit = 10;
 	$commentsLimit = 5;
-	$feedLimit = 20;
+	$feedLimit = 10;
 	$likeText ='Give Pi';
 	$thumbnailSize = 70;
 	$noPosts = 'Nothing to see here.';
