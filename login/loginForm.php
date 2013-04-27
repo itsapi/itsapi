@@ -11,18 +11,20 @@
 	if ($loggedIn == True) {
 ?>
 
-		<section>
-			<p>Hello <a href="user.php?username=<?= $username ?>"><?= $username ?></a>!</p>
-			<form method="post" action="<?= keepUrl() ?>" style="display: inline">
+		<section id="loggedInOpt">
+			<form method="post" action="user.php?username=<?= $username ?>">
+				<input type="submit" value="<?= $username ?>">
+			</form>
+			<form method="post" action="<?= keepUrl() ?>">
 				<input type="submit" name="logout" value="Logout">
 			</form>
-			<form method="post" action="settings.php" style="display: inline">
+			<form method="post" action="settings.php">
 				<input type="submit" value="Settings">
 			</form>
-			<form method="post" action="photo.php" style="display: inline">
+			<form method="post" action="photo.php">
 				<input type="submit" value="Photos">
 			</form>
-			<form method="post" action="messages.php" style="display: inline">
+			<form method="post" action="messages.php">
 				<input type="submit" value="Messages">
 			</form>
 		</section>

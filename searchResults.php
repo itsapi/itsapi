@@ -1,18 +1,5 @@
 <?
 	if (isset($searchTerm)) {
-		$searched_searchTerm = $origSearchTerm;
-	} else {
-		$searched_searchTerm = Null;
-	}
-?>
-		<section id="search">
-			<form method="get" action="<?= keepUrl() ?>">
-				<label>Search Users: <input type="search" name="term" value="<?=$searched_searchTerm?>"></label>
-				<input type="submit" value="Search">
-			</form>
-		</section>
-<?
-	if (isset($searchTerm)) {
 		if (isset($searchResults)) {
 			if (mysqli_num_rows($searchResults) == 0) {
 				echo $searchError;

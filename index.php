@@ -16,8 +16,6 @@
 	<body>
 		<? include('header.php'); ?>
 		<div id="main">
-			<h2>Hello!</h2>
-			<p>Welcome to <?=$siteName?></p>
 			<?
 				include('login/loginForm.php');
 				include('searchResults.php');
