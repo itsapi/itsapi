@@ -40,7 +40,6 @@
 				document.getElementById('notNum').hidden = false
 			}
 		}
-		setTimeout(hideLabel, 1000)
 		setTimeout(hideLabel, 5000)
 	}
 	function copyToClipboard (text) {
