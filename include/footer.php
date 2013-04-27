@@ -1,5 +1,5 @@
 		<footer>
-			<p>&copy; Copyright It's a Pi <?=date('Y', time())?><a href="http://www.iubenda.com/privacy-policy/695504" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a></p>
+			<p>&copy; Copyright It's a Pi <?=date('Y', time())?> <a href="http://www.iubenda.com/privacy-policy/695504" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a></p>
 			<script type="text/javascript">
 				var deleteMsg = document.getElementById("deleteMsg");
 				deleteMsg.onClick(hideMsg(deleteMsg));
