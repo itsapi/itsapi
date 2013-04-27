@@ -1,3 +1,6 @@
+<?
+		include 'include/inc.php';
+?>
 <html>
 	<head>
 		<title>Photo Successfully Uploaded!</title>

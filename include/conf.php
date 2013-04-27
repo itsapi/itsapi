@@ -305,7 +305,7 @@ END;
 				
 				'photoProcess' => 'photo/photoProcess.php',
 				'photoUpload' => 'photo/photoUpload.php',
-				'photoUploadRedirect' => 'photo/photoUploadRedirect.php',
+				'photoUploadRedirect' => 'photoUploadRedirect.php',
 
 				//Posts Files
 

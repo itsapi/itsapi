@@ -21,7 +21,15 @@
 			include($fileNames['pageViewable']);
 			
 			if ($pageViewable) {
-				$image = $image['image'];
+				if (isset($_GET['size']) && ($_GET['size'] <= 50)) {
+					if (isset($image['thumbnail'])) {
+						$image = $image['thumbnail'];
+					} else {
+						$image = $image['image'];
+					}
+				} else {
+					$image = $image['image'];
+				}
 			} else {
 				$image = $defaultImage;
 			}
