@@ -40,8 +40,8 @@
 				document.getElementById('notNum').hidden = false
 			}
 		}
-
 		setTimeout(hideLabel, 1000)
+		setTimeout(hideLabel, 5000)
 	}
 	function copyToClipboard (text) {
 		window.prompt ("Copy to clipboard: Ctrl+C, Enter", text);
