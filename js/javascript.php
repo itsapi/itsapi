@@ -34,7 +34,7 @@
 		formAction('<?=$fileNames['notificationCount']?>', ['viewNotifications'], 'notNum')
 
 		function hideLabel() {
-			if (document.getElementById('notNum').innerText == '0') {
+			if (document.getElementById('notNum').textContent == '0') {
 				document.getElementById('notNum').hidden = true
 			} else {
 				document.getElementById('notNum').hidden = false
