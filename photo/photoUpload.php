@@ -15,7 +15,7 @@
 		$msg .= wrap('p', $photoNoTitle, 'error');
 	} elseif ($_FILES['photoUpload']['tmp_name'] == '' && $_FILES['photoUpload']['size'] > 0) {
 		$msg .= wrap('p', 'You upload a picture.', 'error');
-	} elseif ($_FILES['photoUpload']['size'] > 2097152) {
+	} elseif ($_FILES['photoUpload']['size'] > 8388608) {
 		$msg .= wrap('p', 'Sorry, you\'re picture was too big.', 'error');
 	} elseif (($extension != "jpg") && ($extension != "jpeg") && ($extension != "png") && ($extension != "gif")) {
 		$msg .= ' Unknown Image extension ';
