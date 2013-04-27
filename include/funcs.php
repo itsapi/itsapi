@@ -423,9 +423,9 @@
 					} elseif (preg_match('{\.[0-9]{1,3}}', $imgFile) || isset($validImg[$imgFile]) || stripos($completeUrl, "{$GLOBALS['fileNames']['viewPhoto']}?iid=")) {
 						$output .= '<a href=' . $completeUrl . $target . '<img src=' . $completeUrl . '></a>';
 					} elseif (stripos($completeUrl, "{$GLOBALS['fileNames']['photo']}?iid=")) {
-						$completeUrl = explode($GLOBALS['fileNames']['photo'], $completeUrl);
-						$completeUrl = $completeUrl[0] . $GLOBALS['fileNames']['viewPhoto'] . $completeUrl[1];
-						$output .= '<a href=' . $completeUrl . $target . '<img src=' . $completeUrl . '></a>';
+						$newUrl = explode($GLOBALS['fileNames']['photo'], $completeUrl);
+						$newUrl = $newUrl[0] . $GLOBALS['fileNames']['viewPhoto'] . $newUrl[1];
+						$output .= '<a href=' . $completeUrl . $target . '<img src=' . $newUrl . '></a>';
 					} else {
 						$output .= '<a href=' . $completeUrl . $target . "$domain$port$path" . '</a>';
 					}
