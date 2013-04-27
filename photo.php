@@ -1,6 +1,6 @@
 <?
 	include('include/inc.php');
-	include($fileNames['photoprocess']);
+	include($fileNames['photoProcess']);
 ?>
 
 <!DOCTYPE html>

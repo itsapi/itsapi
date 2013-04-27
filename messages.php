@@ -74,7 +74,7 @@
 				<script>
 					var timeout = 1000;
 					var action = function() {
-						formAction($fileNames['messageView'], ['messagesOffset', 'username'], 'messagesList');
+						formAction('<?=$fileNames['messageView']?>', ['messagesOffset', 'username'], 'messagesList');
 					};
 					setInterval(action, timeout);				
 					

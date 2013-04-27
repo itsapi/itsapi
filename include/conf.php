@@ -253,14 +253,14 @@ END;
 				//Friends Files
 				
 				'addFriend' => 'friends/addFriend.php',
-				'deleteFriend' => 'friends/deleteFriend.php',
+				'deleteFriend' => 'deleteFriend.php',
 				'friends' => 'friends/friends.php',
 				'showAddFriend' => 'friends/showAddFriend.php',
-				'viewFriends' => 'friends/viewFriends.php',
+				'viewFriends' => 'viewFriends.php',
 				
 				//Include Files
 				
-				'clearUsers' => 'include/clearUsers.php',
+				'clearUsers' => 'clearUsers.php',
 				'conf' => 'include/footer.php',
 				'footer' => 'include/footer.php',
 				'funcs' => 'include/funcs.php',
@@ -275,6 +275,7 @@ END;
 				
 				'google' => 'js/google.js',
 				'ajax' => 'js/ajax.js',
+				'javascript' => 'js/javascript.php',
 				
 				//Login Files
 				
@@ -289,16 +290,16 @@ END;
 				
 				//Messages Files
 				
-				'messageView' => 'messages/messageView.php',
-				'sendMessage' => 'messages/sendMessage.php',
+				'messageView' => 'messageView.php',
+				'sendMessage' => 'sendMessage.php',
 				
 				//Notifications Files
 				
-				'deleteAllNotifications' => 'notifications/deleteAllNotifications.php',
-				'deleteNotification' => 'notifications/deleteNotification.php',
-				'notificationCount' => 'notifications/notificationCount.php',
+				'deleteAllNotifications' => 'deleteAllNotifications.php',
+				'deleteNotification' => 'deleteNotification.php',
+				'notificationCount' => 'notificationCount.php',
 				'notifications' => 'notifications/notifications.php',
-				'viewNotifications' => 'notifications/viewNotifications.php',
+				'viewNotifications' => 'viewNotifications.php',
 				
 				//Photo Files
 				
@@ -309,7 +310,7 @@ END;
 				//Posts Files
 
 				'displayPosts' => 'posts/displayPosts.php',
-				'editPost' => 'posts/editPost.php',
+				'editPost' => 'editPost.php',
 				'feed' => 'posts/feed.php',
 				'postProcess' => 'posts/postProcess.php',
 				'submitPost' => 'posts/submitPost.php',
