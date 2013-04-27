@@ -37,7 +37,7 @@
 		$msg .= $getUserGalleryOutput[1];
 		if ($photoExists) {
 			$images = $getUserGalleryOutput[2];
-			$key = $getUserGalleryOutput[3];
+			$photoKey = $getUserGalleryOutput[3];
 			$next = $getUserGalleryOutput[4];
 			$prev = $getUserGalleryOutput[5];
 		}
@@ -61,7 +61,7 @@
 			$msg .= $getUserGalleryOutput[1];
 			if ($photoExists) {
 				$images = $getUserGalleryOutput[2];
-				$key = $getUserGalleryOutput[3];
+				$photoKey = $getUserGalleryOutput[3];
 				$next = $getUserGalleryOutput[4];
 				$prev = $getUserGalleryOutput[5];
 			}

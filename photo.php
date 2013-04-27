@@ -31,30 +31,30 @@
 				
 				if ($photoExists) {
 ?>
-			<h3 id="photoTitle"><?=$images[$key]['title']?></h3>
-			<h4><?=($key + 1) . '/' . (count($images))?></h4>
-			<p>Uploaded on <?=date('d/m/y G:i', $images[$key]['date'])?></p>
-			<a href="<?=$fileNames['viewPhoto']?>?iid=<?=$images[$key]['iid']?>" target="_blank"><img src="<?=$fileNames['viewPhoto']?>?iid=<?=$images[$key]['iid']?>&size=<?=$profilePagePictureSize?>" alt="<?=$images[$key]['title']?>"></a>
+			<h3 id="photoTitle"><?=$images[$photoKey]['title']?></h3>
+			<h4><?=($photoKey + 1) . '/' . (count($images))?></h4>
+			<p>Uploaded on <?=date('d/m/y G:i', $images[$photoKey]['date'])?></p>
+			<a href="<?=$fileNames['viewPhoto']?>?iid=<?=$images[$photoKey]['iid']?>" target="_blank"><img src="<?=$fileNames['viewPhoto']?>?iid=<?=$images[$photoKey]['iid']?>&size=<?=$profilePagePictureSize?>" alt="<?=$images[$photoKey]['title']?>"></a>
 
-			<form action="javascript: copyToClipboard('<?=$domain?>/<?=$fileNames['photo']?>?iid=<?=$images[$key]['iid']?>&username=<?=$userProfile['username']?>#photoTitle')">
+			<form action="javascript: copyToClipboard('<?=$domain?>/<?=$fileNames['photo']?>?iid=<?=$images[$photoKey]['iid']?>&username=<?=$userProfile['username']?>#photoTitle')">
 				<input type="submit" value="Get image link">
 			</form>
 <?
 					if ($loggedIn) {
 						if ($currentUser['uid'] == $userProfile['uid']) {
 ?>
-			<form action="<?=$fileNames['photo']?>?iid=<?=$images[$key]['iid']?>" method="post">
-				<input type="text" value="<?=$images[$key]['iid']?>" name="profileImage" hidden>
+			<form action="<?=$fileNames['photo']?>?iid=<?=$images[$photoKey]['iid']?>" method="post">
+				<input type="text" value="<?=$images[$photoKey]['iid']?>" name="profileImage" hidden>
 				<input type="submit" value="Set as profile picture" name="setProfile">
 			</form>
-			<form action="<?=$fileNames['photo']?>?iid=<? if ($prev != $images[$key]['iid']) { echo $prev; } else { echo $next; }?>" method="post">
-				<input type="text" value="<?=$images[$key]['iid']?>" name="profileImage" hidden>
+			<form action="<?=$fileNames['photo']?>?iid=<? if ($prev != $images[$photoKey]['iid']) { echo $prev; } else { echo $next; }?>" method="post">
+				<input type="text" value="<?=$images[$photoKey]['iid']?>" name="profileImage" hidden>
 				<input type="submit" value="Delete" name="deleteImage">
 			</form>
 <?
 						}
 					}
-					if ($prev != $images[$key]['iid']) {
+					if ($prev != $images[$photoKey]['iid']) {
 ?>
 			<form action="<?=keepUrl()?>#photoTitle" method="get">
 				<input type="text" value="<?=$prev?>" name="iid" hidden>
@@ -67,7 +67,7 @@
 			</form>
 <?
 					}
-					if ($next != $images[$key]['iid']) {
+					if ($next != $images[$photoKey]['iid']) {
 ?>
 			<form action="<?=keepUrl()?>#photoTitle" method="get">
 				<input type="text" value="<?=$next?>" name="iid" hidden>
