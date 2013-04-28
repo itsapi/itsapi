@@ -1,7 +1,12 @@
 <?	
 	if (isset($_GET['username'])) {
 		if ($loggedIn && $_GET['username'] == $currentUser['username']) {
-			header ("location: {$_SERVER['PHP_SELF']}");
+			if (isset($_GET['iid'])) {
+				$iid = "?iid={$_GET['iid']}";
+			} else {
+				$iid = '';
+			}
+			header ("location: {$_SERVER['PHP_SELF']}{$iid}");
 			$userExists = False;
 		} else {	
 			$userProfile = userData(htmlspecialchars($_GET['username'], ENT_QUOTES), $mysqli);
