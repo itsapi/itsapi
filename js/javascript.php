@@ -51,7 +51,4 @@
 		notificationLabel()
 	}
 	setInterval(action, timeout)
-
-	window.onload = notificationLabel()
-
 </script>
