@@ -50,5 +50,5 @@
 	var action = function() {
 		notificationLabel()
 	}
-	//setInterval(action, timeout)
+	setInterval(action, timeout)
 </script>
