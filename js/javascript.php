@@ -50,8 +50,5 @@
 	var action = function() {
 		notificationLabel()
 	}
-	setInterval(action, timeout)
-
-	window.onload = notificationLabel()
-
+	//setInterval(action, timeout)
 </script>
