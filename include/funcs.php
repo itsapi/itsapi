@@ -426,12 +426,19 @@
 						$newUrl = explode($GLOBALS['fileNames']['photo'], $completeUrl);
 						$newUrl = $newUrl[0] . $GLOBALS['fileNames']['viewPhoto'] . $newUrl[1];
 						$output .= '<a href=' . $completeUrl . $target . '<img src=' . $newUrl . '></a>';
+					} elseif (stripos($completeUrl, "{$GLOBALS['fileNames']['user']}?username=")) {
+						$username = userData(explode("{$GLOBALS['fileNames']['user']}?username=", $completeUrl)[1], $GLOBALS['mysqli']);
+						$output .= '<a href=' . $completeUrl . $target . $username['firstname'] . ' ' . $username['lastname'] . '</a>';
 					} else {
 						$output .= '<a href=' . $completeUrl . $target . "$domain$port$path" . '</a>';
 					}
+				} elseif (stripos($completeUrl, "{$GLOBALS['fileNames']['user']}?username=")) {
+					$username = userData(explode("{$GLOBALS['fileNames']['user']}?username=", $completeUrl)[1], $GLOBALS['mysqli']);
+					$output .= '<a href=' . $completeUrl . $target . $username['firstname'] . ' ' . $username['lastname'] . '</a>';
 				} else {
 					$output .= '<a href=' . $completeUrl . $target . "$domain$port$path" . '</a>';
 				}
+				
 			} else {
 				// Not a valid URL.
 				$output .= ($url);
