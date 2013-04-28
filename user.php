@@ -52,7 +52,6 @@
 				
 				if ($userExists) {
 					if ($pageViewable) {
-						echo("\t\t<p>{$welcomeMessage}</p>\n");
 						if ($loggedIn) {
 							if ($userProfile != $currentUser) {
 								echo("\t\t<p><a href=\"{$fileNames['messages']}?username={$userProfile['username']}\">Message</a></p>\n");

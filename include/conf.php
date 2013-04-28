@@ -156,7 +156,6 @@ END;
 	$profilePagePictureSize = 500;
 	$noContentComment = 'You must enter some content for your comment';
 	$noContentPost = 'You must enter some content for your post';
-	$welcomeMessage = 'Welcome to my page.';
 	
 	$noNotifications = 'You have no notifications.';
 	

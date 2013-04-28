@@ -2,8 +2,8 @@
 /* Main Layout Styles */
 body {
 	font-family: Open Sans, sans-serif;
-	font-size: 1.1em;
-	line-height: 1em;
+	font-size: 1em;
+	line-height: 1.2em;
 	margin: 0;
 	padding: 0;
 	z-index: 1;
@@ -16,6 +16,7 @@ body {
 	margin: 0 auto;
 }
 header {
+	/*position: fixed;*/
 	width: 100%;
 	margin: 0;
 	padding: 1px;
@@ -24,15 +25,28 @@ header {
 	background-color: #eee;
 	z-index: 99;
 }
+@media all and (max-width: 1600px) {
+	header {
+		height: 70px;
+	}
+}
 h1 {
 	font-size: 1.5em;
 	margin: 0 50px;
 	padding: 10px;
+	max-width: 900px;
+}
+@media all and (max-width: 1600px) {
+	h1 {
+		margin: 0 auto;
+	}
 }
 #notifications {
-	position: absolute;
-	top: -2px;
-	right: 50px;
+	max-width: 900px;
+	margin: 0 50px;
+	text-align: right;
+	position: relative;
+	top: -83px;
 }
 #notifications > form {
 	display: inline;
@@ -41,6 +55,19 @@ h1 {
 	height: 30px;
 	padding: 3px 5px;
 	margin: 0;
+}
+@media all and (min-width: 1600px) {
+	#notifications {
+		position: absolute;
+		right: 0;
+		top: -2px;
+	}
+}
+@media all and (max-width: 1600px) {
+	#notifications {
+		top: -46px;
+		margin: 0 auto;
+	}
 }
 #notificationsBar, #friendsBar {
 	position: absolute;
@@ -85,6 +112,12 @@ h1 {
     -webkit-animation: fade 6.6s;
     -o-animation: fade 6.6s;
 }
+@media all and (min-width: 1600px) {
+	#msg {
+		left: 10px;
+		margin-left: 0;
+	}
+}
 @keyframes fade {
 	0%   {opacity:1; position: fixed; visibility: visible;}
 	75%  {opacity:1; position: fixed; visibility: visible;}
@@ -122,16 +155,24 @@ h1 {
 #loggedInOpt * {
 	display: inline;
 }
+@media all and (max-width: 1600px) {
+	#loggedInOpt {
+		top: 33px;
+	}
+}
 #search {
 	font-size: 0.9em;
 	max-width: 900px;
 	margin: 0 auto;
 	text-align: right;
 	position: relative;
-	top: -41px;
+	top: -40px;
 }
 #search input[type="submit"] {
 	font-size: 0.9em;
+	height: 30px;
+	padding: 3px 5px;
+	margin: 0;
 }
 footer {
 	margin: 40px;
@@ -170,10 +211,12 @@ input[type="submit"]:hover, input[type="button"]:hover {
 }
 textarea {
 	width: 85%;
-	padding: 20px;
+	padding: 5px;
 	margin: 0;
 	height: 50px;
 	border: 1px solid #999;
+	font-size: 0.8em;
+	line-height: 1em;
 }
 img {
 	max-width: 500px;
@@ -211,6 +254,12 @@ a:hover {
 }
 #posts li {
 	margin: 50px 0;
+}
+#posts li a:first-child, #posts .date, #posts .pi {
+	font-size: 0.9em;
+}
+#posts .li a:first-child {
+	padding-bottom: 30px;
 }
 #posts li ul li {
 	margin: 10px;
