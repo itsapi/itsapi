@@ -1,4 +1,7 @@
-
+<?
+    header("Content-type: text/css; charset: UTF-8");
+	include('include/inc.php');
+?>
 /* Main Layout Styles */
 body {
 	font-family: Open Sans, sans-serif;
@@ -25,22 +28,27 @@ header {
 	background-color: #eee;
 	z-index: 99;
 }
+<? if ($loggedIn) { ?>
 @media all and (max-width: 1600px) {
 	header {
 		height: 70px;
 	}
 }
+<? } ?>
 h1 {
 	font-size: 1.5em;
 	margin: 0 50px;
 	padding: 10px;
 	max-width: 900px;
+	z-index: 99;
 }
+<? if ($loggedIn) { ?>
 @media all and (max-width: 1600px) {
 	h1 {
 		margin: 0 auto;
 	}
 }
+<? } ?>
 #notifications {
 	max-width: 900px;
 	margin: 0 50px;
@@ -56,6 +64,7 @@ h1 {
 	padding: 3px 5px;
 	margin: 0;
 }
+<? if ($loggedIn) { ?>
 @media all and (min-width: 1600px) {
 	#notifications {
 		position: absolute;
@@ -69,6 +78,7 @@ h1 {
 		margin: 0 auto;
 	}
 }
+<? } ?>
 #notificationsBar, #friendsBar {
 	position: absolute;
 	right: 0;
@@ -112,12 +122,14 @@ h1 {
     -webkit-animation: fade 6.6s;
     -o-animation: fade 6.6s;
 }
+<? if ($loggedIn) { ?>
 @media all and (min-width: 1600px) {
 	#msg {
 		left: 10px;
 		margin-left: 0;
 	}
 }
+<? } ?>
 @keyframes fade {
 	0%   {opacity:1; position: fixed; visibility: visible;}
 	75%  {opacity:1; position: fixed; visibility: visible;}
@@ -155,11 +167,13 @@ h1 {
 #loggedInOpt * {
 	display: inline;
 }
+<? if ($loggedIn) { ?>
 @media all and (max-width: 1600px) {
 	#loggedInOpt {
 		top: 33px;
 	}
 }
+<? } ?>
 #search {
 	font-size: 0.9em;
 	max-width: 900px;
@@ -167,6 +181,9 @@ h1 {
 	text-align: right;
 	position: relative;
 	top: -40px;
+}
+#search form {
+	z-index: 98;
 }
 #search input[type="submit"] {
 	font-size: 0.9em;

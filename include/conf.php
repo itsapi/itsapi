@@ -246,7 +246,7 @@ END;
 				
 				//CSS Files
 				
-				'style' => 'css/style.css',
+				'style' => 'style.php',
 				'normalize' => 'css/normalize.css',
 				
 				//Friends Files
