@@ -424,8 +424,7 @@
 						$output .= '<a href=' . $completeUrl . $target . '<img src=' . $completeUrl . '></a>';
 					} elseif (stripos($completeUrl, "{$GLOBALS['fileNames']['photo']}?iid=")) {
 						$newUrl = explode($GLOBALS['fileNames']['photo'], $completeUrl);
-						$queryString = explode('?iid=', $newUrl[1]);
-						$newUrl = $newUrl[0] . $GLOBALS['fileNames']['viewPhoto'] . '?size=500&iid=' . $queryString[1];
+						$newUrl = $newUrl[0] . $GLOBALS['fileNames']['viewPhoto'] . $newUrl[1];
 						$output .= '<a href=' . $completeUrl . $target . '<img src=' . $newUrl . '></a>';
 					} elseif (stripos($completeUrl, "{$GLOBALS['fileNames']['user']}?username=")) {
 						$username = userData(explode("{$GLOBALS['fileNames']['user']}?username=", $completeUrl)[1], $GLOBALS['mysqli']);
