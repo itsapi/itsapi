@@ -422,10 +422,10 @@
 						$output .= '<iframe width="560" height="350" src="http://www.youtube.com/embed/' . $youtubeWatchCode . '?wmode=direct" frameborder="0" allowfullscreen></iframe>';
 					} elseif (preg_match('{\.[0-9]{1,3}}', $imgFile) || isset($validImg[$imgFile]) || stripos($completeUrl, "{$GLOBALS['fileNames']['viewPhoto']}?iid=")) {
 						$output .= '<a href=' . $completeUrl . $target . '<img src=' . $completeUrl . '></a>';
-					// } elseif (stripos($completeUrl, "{$GLOBALS['fileNames']['photo']}?iid=")) {
-					// 	$newUrl = explode($GLOBALS['fileNames']['photo'], $completeUrl);
-					// 	$newUrl = $newUrl[0] . $GLOBALS['fileNames']['viewPhoto'] . $newUrl[1];
-					// 	$output .= '<a href=' . $completeUrl . $target . '<img src=' . $newUrl . '></a>';
+					} elseif (stripos($completeUrl, "{$GLOBALS['fileNames']['photo']}?iid=")) {
+						$newUrl = explode($GLOBALS['fileNames']['photo'], $completeUrl);
+						$newUrl = $newUrl[0] . $GLOBALS['fileNames']['viewPhoto'] . $newUrl[1];
+						$output .= '<a href=' . $completeUrl . $target . '<img src=' . $newUrl . '></a>';
 					} elseif (stripos($completeUrl, "{$GLOBALS['fileNames']['user']}?username=")) {
 						$username = userData(explode("{$GLOBALS['fileNames']['user']}?username=", $completeUrl)[1], $GLOBALS['mysqli']);
 						$output .= '<a href=' . $completeUrl . $target . $username['firstname'] . ' ' . $username['lastname'] . '</a>';
