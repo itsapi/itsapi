@@ -35,18 +35,39 @@ header {
 	}
 }
 <? } ?>
+#headEl {
+	width: 100%;
+	margin: 0 auto;
+}
+<? if ($loggedIn) { ?>
+@media all and (max-width: 1600px) {
+	#headEl {
+		width: 900px;
+	}
+}
+<? } else { ?>
+#headEl {
+	width: 900px;
+}
+<? } ?>
 h1 {
 	font-size: 1.5em;
 	margin: 0 50px;
-	padding: 10px;
-	max-width: 900px;
+	padding: 10px 0;
 	z-index: 99;
+	width: 50%;
 }
 <? if ($loggedIn) { ?>
 @media all and (max-width: 1600px) {
 	h1 {
-		margin: 0 auto;
+		left: 0;
+		margin: 0;
 	}
+}
+<? } else { ?>
+h1 {
+	left: 0;
+	margin: 0;
 }
 <? } ?>
 #notifications {
@@ -65,7 +86,7 @@ h1 {
 	margin: 0;
 }
 <? if ($loggedIn) { ?>
-@media all and (min-width: 1600px) {
+@media all and (min-width: 1599px) {
 	#notifications {
 		position: absolute;
 		right: 0;
@@ -176,12 +197,25 @@ h1 {
 <? } ?>
 #search {
 	font-size: 0.9em;
-	max-width: 900px;
-	margin: 0 auto;
-	text-align: right;
 	position: relative;
+	text-align: right;
+	width: 50%;
 	top: -40px;
 }
+<? if ($loggedIn) { ?>
+@media all and (min-width: 1600px) {
+	#search {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+}
+@media all and (max-width: 1600px) {
+	#search {
+		max-width: 900px;
+		left: 50%;
+	}
+}
+<? } ?>
 #search form {
 	z-index: 98;
 }
