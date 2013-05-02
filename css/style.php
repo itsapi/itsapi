@@ -17,9 +17,11 @@ body {
 	background-color: fff;
 	max-width: 900px;
 	margin: 0 auto;
+	margin-top: 100px;
 }
 header {
-	/*position: fixed;*/
+	position: fixed;
+	top: 0;
 	width: 100%;
 	margin: 0;
 	padding: 1px;
@@ -177,8 +179,9 @@ h1 {
 	right: 15px;
 }
 #loggedInOpt {
-	position: absolute;
+	position: fixed;
 	top: -2px;
+	z-index: 100;
 }
 #loggedInOpt form input {
 	height: 30px;
@@ -228,6 +231,14 @@ h1 {
 footer {
 	margin: 40px;
 	border-top: 1px solid #CCC;
+}
+#galleryButtons form input {
+	height: 30px;
+	padding: 3px 5px;
+	margin: 0;
+}
+#galleryButtons * {
+	display: inline;
 }
 /* End Main Layout Styles */
 

@@ -36,48 +36,50 @@
 			<p>Uploaded on <?=date('d/m/y G:i', $images[$photoKey]['date'])?></p>
 			<a href="<?=$fileNames['viewPhoto']?>?iid=<?=$images[$photoKey]['iid']?>" target="_blank"><img src="<?=$fileNames['viewPhoto']?>?iid=<?=$images[$photoKey]['iid']?>&size=<?=$profilePagePictureSize?>" alt="<?=$images[$photoKey]['title']?>"></a>
 
-			<form action="javascript: copyToClipboard('<?=$domain?>/<?=$fileNames['photo']?>?iid=<?=$images[$photoKey]['iid']?>&username=<?=$userProfile['username']?>#photoTitle')">
-				<input type="submit" value="Get image link">
-			</form>
+			<section id="galleryButtons">
+				<form action="javascript: copyToClipboard('<?=$domain?>/<?=$fileNames['photo']?>?iid=<?=$images[$photoKey]['iid']?>&username=<?=$userProfile['username']?>#photoTitle')">
+					<input type="submit" value="Get image link">
+				</form>
 <?
 					if ($loggedIn) {
 						if ($currentUser['uid'] == $userProfile['uid']) {
 ?>
-			<form action="<?=$fileNames['photo']?>?iid=<?=$images[$photoKey]['iid']?>" method="post">
-				<input type="text" value="<?=$images[$photoKey]['iid']?>" name="profileImage" hidden>
-				<input type="submit" value="Set as profile picture" name="setProfile">
-			</form>
-			<form action="<?=$fileNames['photo']?>?iid=<? if ($prev != $images[$photoKey]['iid']) { echo $prev; } else { echo $next; }?>" method="post">
-				<input type="text" value="<?=$images[$photoKey]['iid']?>" name="profileImage" hidden>
-				<input type="submit" value="Delete" name="deleteImage">
-			</form>
+				<form action="<?=$fileNames['photo']?>?iid=<?=$images[$photoKey]['iid']?>" method="post">
+					<input type="text" value="<?=$images[$photoKey]['iid']?>" name="profileImage" hidden>
+					<input type="submit" value="Set as profile picture" name="setProfile">
+				</form>
+				<form action="<?=$fileNames['photo']?>?iid=<? if ($prev != $images[$photoKey]['iid']) { echo $prev; } else { echo $next; }?>" method="post">
+					<input type="text" value="<?=$images[$photoKey]['iid']?>" name="profileImage" hidden>
+					<input type="submit" value="Delete" name="deleteImage">
+				</form>
 <?
 						}
 					}
 					if ($prev != $images[$photoKey]['iid']) {
 ?>
-			<form action="<?=keepUrl()?>#photoTitle" method="get">
-				<input type="text" value="<?=$prev?>" name="iid" hidden>
+				<form action="<?=keepUrl()?>#photoTitle" method="get">
+					<input type="text" value="<?=$prev?>" name="iid" hidden>
 <?
 						if (!$loggedIn || ($userProfile != $currentUser)) {
 							echo "<input type=\"text\" value=\"{$userProfile['username']}\" name=\"username\" hidden>";
 						}
 ?>
-				<input type="submit" value="Previous">
-			</form>
+					<input type="submit" value="Previous">
+				</form>
 <?
 					}
 					if ($next != $images[$photoKey]['iid']) {
 ?>
-			<form action="<?=keepUrl()?>#photoTitle" method="get">
-				<input type="text" value="<?=$next?>" name="iid" hidden>
+				<form action="<?=keepUrl()?>#photoTitle" method="get">
+					<input type="text" value="<?=$next?>" name="iid" hidden>
 <?
 						if (!$loggedIn || ($userProfile != $currentUser)) {
 							echo "<input type=\"text\" value=\"{$userProfile['username']}\" name=\"username\" hidden>";
 						}
 ?>
-				<input type="submit" value="Next">
-			</form>
+					<input type="submit" value="Next">
+				</form>
+			</section>
 <?
 					}
 				}
