@@ -246,20 +246,20 @@ END;
 				
 				//CSS Files
 				
-				'style' => 'style.php',
+				'style' => 'css/style.php',
 				'normalize' => 'css/normalize.css',
 				
 				//Friends Files
 				
 				'addFriend' => 'friends/addFriend.php',
-				'deleteFriend' => 'deleteFriend.php',
+				'deleteFriend' => 'friends/deleteFriend.php',
 				'friends' => 'friends/friends.php',
 				'showAddFriend' => 'friends/showAddFriend.php',
-				'viewFriends' => 'viewFriends.php',
+				'viewFriends' => 'friends/viewFriends.php',
 				
 				//Include Files
 				
-				'clearUsers' => 'clearUsers.php',
+				'clearUsers' => 'include/clearUsers.php',
 				'conf' => 'include/footer.php',
 				'footer' => 'include/footer.php',
 				'funcs' => 'include/funcs.php',
@@ -289,16 +289,16 @@ END;
 				
 				//Messages Files
 				
-				'messageView' => 'messageView.php',
-				'sendMessage' => 'sendMessage.php',
+				'messageView' => 'messages/messageView.php',
+				'sendMessage' => 'messages/sendMessage.php',
 				
 				//Notifications Files
 				
-				'deleteAllNotifications' => 'deleteAllNotifications.php',
-				'deleteNotification' => 'deleteNotification.php',
-				'notificationCount' => 'notificationCount.php',
+				'deleteAllNotifications' => 'notifications/deleteAllNotifications.php',
+				'deleteNotification' => 'notifications/deleteNotification.php',
+				'notificationCount' => 'notifications/notificationCount.php',
 				'notifications' => 'notifications/notifications.php',
-				'viewNotifications' => 'viewNotifications.php',
+				'viewNotifications' => 'notifications/viewNotifications.php',
 				
 				//Photo Files
 				
