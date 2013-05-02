@@ -30,6 +30,10 @@
 			elem.parentNode.removeChild(elem)
 		}
 	}
+	function sendMessage() {
+		formAction('<?=$fileNames['sendMessage']?>', ['messageText', 'username'], '')
+		document.getElementById('messageText').value = ''
+	}
 	function notificationLabel() {
 		formAction('<?=$fileNames['notificationCount']?>', ['viewNotifications'], 'notNum')
 

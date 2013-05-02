@@ -66,7 +66,7 @@
 <?
 					echo "</ul><input type=\"text\" id=\"messagesOffset\" name=\"messagesOffset\" value=\"{$messagesOffset}\" hidden><input type=\"submit\" name=\"newer\" value=\"Show Newer\"></form>";
 ?>
-	<form action="javascript: formAction('<?=$fileNames['sendMessage']?>', ['messageText', 'username'], ''); document.getElementById('messageText').value = '';">
+	<form action="javascript: sendMessage()">
 		<input type="text" id="messageText" autofocus>
 		<input type="text" id="username" value="<?=$_GET['username']?>" hidden>
 		<input type="submit" value="Send">
