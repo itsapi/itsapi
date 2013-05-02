@@ -232,12 +232,7 @@ footer {
 	margin: 40px;
 	border-top: 1px solid #CCC;
 }
-#galleryButtons form input {
-	height: 30px;
-	padding: 3px 5px;
-	margin: 0;
-}
-#galleryButtons * {
+#galleryButtons form {
 	display: inline;
 }
 /* End Main Layout Styles */
