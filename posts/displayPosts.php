@@ -5,9 +5,11 @@
 		$profileData = userData($row['uid'], $mysqli, 'uid');
 		$postProfileData = $profileData;
 		$name = $profileData['firstname'] . ' ' . $profileData['lastname'];
-		echo "\n\t\t\t\t<a href=\"{$fileNames['user']}?username={$profileData['username']}\">" . profileImage($profileData, 'profilePhoto', $size=$thumbnailSize) . $name . "</a><br>";
-	} elseif ($loggedIn && !isset($singlePost)) { $postProfileData = $currentUser; }
-	echo removeLines(detectURL($row['content'])) . "<br>\n\t\t\t\t<span class=\"date\">" . date('d/m/y G:i', $row['date']) . '</span>';
+		echo "\n\t\t\t\t<a href=\"{$fileNames['user']}?username={$profileData['username']}\">" . profileImage($profileData, 'profilePhoto', $size=$thumbnailSize) . $name . "</a>";
+	} elseif ($loggedIn && !isset($singlePost)) {
+		$postProfileData = $currentUser;
+	}
+	echo "<p>" . removeLines(detectURL($row['content'])) . "</p>\n\t\t\t\t<span class=\"date\">" . date('d/m/y G:i', $row['date']) . '</span>';
 	if ($loggedIn) {
 		if ($row['uid'] == $currentUser['uid']) {
 			echo "\n\n\t\t\t\t<form method=\"post\" action=\"" . keepUrl() . "\" style=\"display: inline\">\n\t\t\t\t\t<input type=\"text\" name=\"deletePost\" value=\"{$pid}\" hidden>\n\t\t\t\t\t<input type=\"submit\" value=\"Delete\">\n\t\t\t\t</form>";

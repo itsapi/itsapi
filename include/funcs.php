@@ -447,10 +447,12 @@
 	}
 	
 	function removeLines($text) {
-		/*$text = preg_replace("/[\r\n]+/", "\n", $text);*/
 		$text = preg_replace('/(?:(?:\r\n|\r|\n)\s*){2}/s', "\n\n", $text);
 		while (substr($text, -1) == "\n") {
 			$text = substr($text, 0, -1);
+		}
+		while (substr($text, 0, 1) == "\n") {
+			$text = substr($text, 1, -1);
 		}
 
 		$text = nl2br($text);

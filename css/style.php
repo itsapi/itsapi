@@ -315,9 +315,6 @@ a:hover {
 #posts li a:first-child, #posts .date, #posts .pi {
 	font-size: 0.9em;
 }
-#posts .li a:first-child {
-	padding-bottom: 30px;
-}
 #posts li ul li {
 	margin: 10px;
 }
