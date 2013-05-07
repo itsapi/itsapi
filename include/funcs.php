@@ -83,12 +83,6 @@
 		}
 		return $result;
 	}
-
-	function nl2br_limit($string, $num) {
-		$clean = preg_replace('/\n{4,}/', str_repeat('<br>', $num), preg_replace('/\r/', '', $string));
-		$clean = str_replace("\n", '', $clean);
-		return nl2br($clean, False);
-	}
 	
 	function friendUids($mysqli, $currentUser) {
 		$result = query_DB($mysqli, "SELECT uid1, uid2 FROM friends WHERE (uid1={$currentUser['uid']} OR uid2={$currentUser['uid']}) AND `acc1`=1 AND `acc2`=1");
@@ -453,7 +447,8 @@
 	}
 	
 	function removeLines($text) {
-		$text = preg_replace("/[\r\n]+/", "\n", $text);
+		/*$text = preg_replace("/[\r\n]+/", "\n", $text);*/
+		$text = preg_replace('/(?:(?:\r\n|\r|\n)\s*){2}/s', "\n\n", $text);
 		while (substr($text, -1) == "\n") {
 			$text = substr($text, 0, -1);
 		}
