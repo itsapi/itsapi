@@ -1,5 +1,5 @@
 <?
-		include 'include/inc.php';
+		include '../include/inc.php';
 ?>
 <html>
 	<head>

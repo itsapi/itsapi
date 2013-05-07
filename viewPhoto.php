@@ -8,8 +8,8 @@
 	
 	if (isset($_GET['iid'])) {
 		
-		$defaultProfileImageFile = fopen('default.png', 'r');
-		$defaultImage = fread($defaultProfileImageFile, filesize('default.png'));
+		$defaultProfileImageFile = fopen($fileNames['default'], 'r');
+		$defaultImage = fread($defaultProfileImageFile, filesize($fileNames['default']));
 		fclose($defaultProfileImageFile);
 		
 		if ($_GET['iid'] != '') {			

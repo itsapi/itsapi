@@ -259,11 +259,11 @@ input[type="submit"], input[type="button"] {
 	padding: 5px;
 	font-size: 0.8em;
 	background-color: #ddd;
-	background: url(overlay.png) repeat-x center #ddd;
+	background: url(<?=$fileNames['overlay']?>) repeat-x center #ddd;
 	border: 1px dotted #eee;
 }
 input[type="submit"]:hover, input[type="button"]:hover {
-	background: url(overlay.png) repeat-x center #eee;
+	background: url(<?=$fileNames['overlay']?>) repeat-x center #eee;
 	border: 1px dotted #fff;
 }
 textarea {

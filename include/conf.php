@@ -304,12 +304,12 @@ END;
 				
 				'photoProcess' => 'photo/photoProcess.php',
 				'photoUpload' => 'photo/photoUpload.php',
-				'photoUploadRedirect' => 'photoUploadRedirect.php',
+				'photoUploadRedirect' => 'photo/photoUploadRedirect.php',
 
 				//Posts Files
 
 				'displayPosts' => 'posts/displayPosts.php',
-				'editPost' => 'editPost.php',
+				'editPost' => 'posts/editPost.php',
 				'feed' => 'posts/feed.php',
 				'postProcess' => 'posts/postProcess.php',
 				'submitPost' => 'posts/submitPost.php',
@@ -331,5 +331,10 @@ END;
 				'userInfo' => 'user/userInfo.php',
 				'userPosts' => 'user/userPosts.php',
 				'userPostsProcess' => 'user/userPostsProcess.php',
-				'userProcess' => 'user/userProcess.php'
+				'userProcess' => 'user/userProcess.php',
+
+				//Image files
+
+				'default' => 'images/default.png',
+				'overlay' => 'images/overlay.png'
 	];
