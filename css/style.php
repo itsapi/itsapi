@@ -17,9 +17,11 @@ body {
 	background-color: fff;
 	max-width: 900px;
 	margin: 0 auto;
+	margin-top: 100px;
 }
 header {
-	/*position: fixed;*/
+	position: fixed;
+	top: 0;
 	width: 100%;
 	margin: 0;
 	padding: 1px;
@@ -177,8 +179,9 @@ h1 {
 	right: 15px;
 }
 #loggedInOpt {
-	position: absolute;
+	position: fixed;
 	top: -2px;
+	z-index: 100;
 }
 #loggedInOpt form input {
 	height: 30px;
@@ -229,6 +232,9 @@ footer {
 	margin: 40px;
 	border-top: 1px solid #CCC;
 }
+#galleryButtons form {
+	display: inline;
+}
 /* End Main Layout Styles */
 
 /* General Styling */
@@ -253,11 +259,11 @@ input[type="submit"], input[type="button"] {
 	padding: 5px;
 	font-size: 0.8em;
 	background-color: #ddd;
-	background: url(overlay.png) repeat-x center #ddd;
+	background: url(<?=$fileNames['overlay']?>) repeat-x center #ddd;
 	border: 1px dotted #eee;
 }
 input[type="submit"]:hover, input[type="button"]:hover {
-	background: url(overlay.png) repeat-x center #eee;
+	background: url(<?=$fileNames['overlay']?>) repeat-x center #eee;
 	border: 1px dotted #fff;
 }
 textarea {

@@ -1,5 +1,5 @@
 <?
-	include('include/inc.php');
+	include('../include/inc.php');
 	
 	if (isset($_GET['pid'])) {
 		$pid = htmlspecialchars($_GET['pid'], ENT_QUOTES);
