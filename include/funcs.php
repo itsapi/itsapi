@@ -209,7 +209,7 @@
 	}
 	
 	function profileImage($userProfile, $imgClass='profilePhoto', $size=500) {
-		return "<img src=\"{$GLOBALS['fileNames']['viewPhoto']}?iid={$userProfile['iid']}&size={$size}\" alt=\"{$userProfile['username']}'s picture\" class=\"{$imgClass}\">";
+		return "<img src=\"{$GLOBALS['fileNames']['viewPhoto']}?iid={$userProfile['iid']}&size={$size}\" width=\"{$size}\" alt=\"{$userProfile['username']}'s picture\" class=\"{$imgClass}\">";
 	}
 	
 	function updateProfileImage($uid, $iid, $mysqli) {
