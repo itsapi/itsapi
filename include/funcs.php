@@ -161,7 +161,7 @@
 	}
 	
 	function email($userData, $subject, $message) {
-		require_once('/var/www/phpmailer/class.phpmailer.php');
+		require_once('../../phpmailer/class.phpmailer.php');
 		
 		$mail = new PHPMailer();
 		
