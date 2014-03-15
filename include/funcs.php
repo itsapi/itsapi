@@ -161,37 +161,49 @@
 	}
 	
 	function email($userData, $subject, $message) {
-		require_once('../../phpmailer/class.phpmailer.php');
+		// require_once('../../phpmailer/class.phpmailer.php');
 		
-		$mail = new PHPMailer();
+		// $mail = new PHPMailer();
 		
-		$body = $message;
+		// $body = $message;
 		
-		$mail->IsSMTP();
-		$mail->Host       = $GLOBALS['smtpHost'];
-		$mail->SMTPDebug  = 1;
+		// $mail->IsSMTP();
+		// $mail->Host       = $GLOBALS['smtpHost'];
+		// $mail->SMTPDebug  = 1;
 
-		$mail->SMTPAuth   = true;
-		$mail->SMTPSecure = $GLOBALS['mailSecurity'];
-		$mail->Host       = $GLOBALS['smtpHost'];
-		$mail->Port       = $GLOBALS['mailPort'];
-		$mail->Username   = $GLOBALS['mailUser'];
-		$mail->Password   = $GLOBALS['mailPass'];
+		// $mail->SMTPAuth   = true;
+		// $mail->SMTPSecure = $GLOBALS['mailSecurity'];
+		// $mail->Host       = $GLOBALS['smtpHost'];
+		// $mail->Port       = $GLOBALS['mailPort'];
+		// $mail->Username   = $GLOBALS['mailUser'];
+		// $mail->Password   = $GLOBALS['mailPass'];
 
-		$mail->SetFrom($GLOBALS['mailFrom'], $GLOBALS['siteName']);
+		// $mail->SetFrom($GLOBALS['mailFrom'], $GLOBALS['siteName']);
 
-		$mail->AddReplyTo($GLOBALS['mailReplyTo'], $GLOBALS['siteName']);
+		// $mail->AddReplyTo($GLOBALS['mailReplyTo'], $GLOBALS['siteName']);
 
-		$mail->Subject    = $subject;
+		// $mail->Subject    = $subject;
 
-		$mail->AltBody    = $GLOBALS['noHTML'];
+		// $mail->AltBody    = $GLOBALS['noHTML'];
 
-		$mail->MsgHTML($body);
+		// $mail->MsgHTML($body);
 
-		$address = "{$userData['email']}";
-		$mail->AddAddress($address, "{$userData['firstname']} {$userData['lastname']}");
+		// $address = "{$userData['email']}";
+		// $mail->AddAddress($address, "{$userData['firstname']} {$userData['lastname']}");
 
-		return $mail->Send();
+		// return $mail->Send();
+
+		$to = [
+			"email" => "{$userData['email']}",
+			"name" => "{$userData['firstname']} {$userData['lastname']}"
+		];
+		$headers  = "MIME-Version: 1.0\r\n";
+		$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+		$headers .= "To: {$to['name']} <{$to['email']}>\r\n";
+		$headers .= "From: {$GLOBALS['siteName']} <{$GLOBALS['mailReplyTo']}>\r\n";
+		$headers .= "Reply-To: {$GLOBALS['mailFrom']}\r\n";
+
+		return mail($to['email'], $subject, $message, $headers);
 	}
 	
 	function verify($userData, $verifyCode) {
