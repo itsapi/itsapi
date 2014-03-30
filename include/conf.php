@@ -2,12 +2,12 @@
 	function wrap($tag, $content, $name = '', $prefix = '', $type = 'class') {
 		return "{$prefix}<{$tag} $type=\"{$name}\">{$content}{$prefix}</{$tag}>";
 	}
-	
+
 	$siteName = "It's a Pi!";
 	$domain = 'itsapi.co.uk';
 
 	$specialMsg = "Thank you for beta-testing It's a Pi! Please PM admins <a href=\"messages.php?username=olls\">Olls</a> or <a href=\"messages.php?username=grit96\">Grit96</a> if you come accross any bugs, issues or just have questions to ask.";
-	
+
 	$passLength = 8;
 	$userLength = 3;
 	$errorMsgs = ['password' => wrap('p', "Passwords don't match.", 'error'),
@@ -21,10 +21,10 @@
 				  'takenUsername' => wrap('p', 'Sorry, your username is taken, please try another.', 'error'),
 				  'email' => wrap('p', 'You must enter a valid email.', 'error')];
 	$registerWelcome = 'Welcome {username}, you need to verify your account before you can login.';
-	
+
 	$loginFail = 'The username or password is incorrect.';
 	$loginWelcome = 'Welcome {username}, you are now logged in.';
-	
+
 	$humanColumnTitles = ['uid' => 'User ID',
 						  'username' => 'Username',
 						  'firstname' => 'First Name',
@@ -35,7 +35,7 @@
 						  'county' => 'County',
 						  'country' => 'Country',
 						  'postCode' => 'Postcode'];
-	
+
 	$settingsSaved = 'Your settings have been succesfully saved.';
 	$settingsFormTypes = ['firstname' => 'text',
 						  'lastname' => 'text',
@@ -45,7 +45,7 @@
 						  'county' => 'text',
 						  'country' => 'text',
 						  'postCode' => 'text'];
-	
+
 	$userInfoColumns = ['firstname',
 					    'lastname',
 					    'email',
@@ -55,7 +55,7 @@
 					    'country',
 					    'postCode'];
 	$infoSeperator = ': ';
-	
+
 	$searchError = "Your search returned no results.";
 	$searchNoTerm = 'Please enter some text to search.';
 	$searchTableHeadings = ['firstname',
@@ -76,7 +76,7 @@ END;
 \t\t\t</li>
 END;
 	$searchCell = '{cellTxt} ';
-	
+
 	$verifyLogin = 'Please verify your account. <a href="{url}">Click here</a> to resend the email.';
 	$verifySuccess = 'Congratulations {username}, your account is now active, you can now login.';
 	$verifyCodeLength = 30;
@@ -96,21 +96,21 @@ END;
 END;
 	$verifyEmailSuccess = 'Your verification email has been sent. Your account will be deleted if you do not verify your account within 7 days.';
 	$verifyEmailFail = 'Your verification email has not been sent. Click ';
-	
+
 	$verifyAccount = 'The account you tried to verify does not exist or you typed the URL incorrectly.';
-	
+
 	$viewFriendsButtonTxt = 'Show Friends';
 	$hideFriendsButtonTxt = 'Hide Friends';
-	
+
 	$viewNotificationsButtonTxt = 'Show Notifications';
 	$hideNotificationsButtonTxt = 'Hide Notifications';
-	
+
 	$viewPostsButtonTxt = 'Show posts';
 	$viewProfileButtonTxt = 'Show profile';
 
 	$friendRequestSent = '<br>You have sent a friend request.';
 	$friendRequestAccepted = 'You and {profileName} are friends.';
-	
+
 	$messagesLimit = 20;
 	$postsLimit = 10;
 	$commentsLimit = 5;
@@ -130,40 +130,40 @@ END;
 	$noPermissionEdit = 'You do not have permission to edit this.';
 	$notSaved = 'Not Saved :(';
 	$userNotExist = 'That user does not exist';
-	
+
 	$profilePictureSuccess = 'Sucsessfuly set image as profile picture!';
 	$profilePictureFail = 'Unsucsessfuly set image as profile picture.';
 	$photoNotExists = 'Photo does not exist';
 	$noPhotos = 'does not have any photos yet.';
 	$photoNoTitle = 'You must enter a title.';
-	
+
 	$postSuccess = wrap('p', 'Post success.');
 	$postFail = wrap('p', 'Post failed.');
 	$successDeletePost = 'Your post was deleted.';
 	$unsuccessDeletePost = 'Your post failed to deleted.';
-	
+
 	$commentSuccessful = 'Comment successful.';
 	$commentFailed = 'Comment failed.';
 	$commentDeleted = 'Comment deleted';
-	
+
 	$noPermission = 'You do not have permission to view this page.';
 	$messageFrom = 'You have a message from ';
 	$messageSuccess = 'Message sent!';
 	$messageFail = 'Message not sent!';
-	
+
 	$settingsNotChanged = 'Settings not changed.';
 	$postNotExist = '<p>This post does not exist.</p>';
 	$profilePagePictureSize = 500;
 	$noContentComment = 'You must enter some content for your comment';
 	$noContentPost = 'You must enter some content for your post';
-	
+
 	$noNotifications = 'You have no notifications.';
-	
+
 	$noPermissionImg1 = "You do not have permission";
 	$noPermissionImg2 = "to view this image.";
-	
+
 	$noFriends = 'You have no friends!';
-	
+
 	$notificationMessage = <<<END
 <html>
 	<head>
@@ -182,9 +182,7 @@ END;
 	$givePiSuccess = 'Successfully Given Pi';
 	$givePiFail = 'Failed to Give Pi';
 	$givePiAlready = 'Already Given Pi';
-	
-	include 'include/mailConf.php';
-	
+
 	$photoDeleteSuccess = 'Your photo was deleted.';
 
 	$passwordReset = "You requested a password reset";
@@ -203,7 +201,7 @@ END;
 END;
 	$passwordResetSuccess = 'Your password reset email has been sent.';
 	$passwordResetSuccess = 'Your password reset email has not been sent. Click ';
-	
+
 	$changeEmailRequest = "You requested an email address change";
 	$changeEmailMsg = <<<END
 <html>
@@ -221,11 +219,17 @@ END;
 
 	$changeEmailSent = 'You will need to verify the email address update. An email has been sent to your old email address.';
 	$changeEmailNotSent = 'Your email address update verification email has not been sent. Click ';
-	
+
 	$deleteProfileFail = 'Failed to delete your profile.';
 	$verifyTimeOut = 604800;
-	
-	
+
+	$smtpHost = "smtp.gmail.com";
+	$mailSecurity = "ssl";
+	$mailPort = 465;
+
+	$noHTML = "To view the message, please use an HTML compatible email viewer!";
+
+
 	$fileNames = [
 
 				//Core Files
@@ -237,28 +241,28 @@ END;
 				'settings' => 'settings.php',
 				'user' => 'user.php',
 				'viewPhoto' => 'viewPhoto.php',
-				
+
 				//Comments Files
-				
+
 				'commentProcess' => 'comments/commentProcess.php',
 				'submitComment' => 'comments/submitComment.php',
 				'viewComments' => 'comments/viewComments.php',
-				
+
 				//CSS Files
-				
+
 				'style' => 'css/style.php',
 				'normalize' => 'css/normalize.css',
-				
+
 				//Friends Files
-				
+
 				'addFriend' => 'friends/addFriend.php',
 				'deleteFriend' => 'friends/deleteFriend.php',
 				'friends' => 'friends/friends.php',
 				'showAddFriend' => 'friends/showAddFriend.php',
 				'viewFriends' => 'friends/viewFriends.php',
-				
+
 				//Include Files
-				
+
 				'clearUsers' => 'include/clearUsers.php',
 				'conf' => 'include/footer.php',
 				'footer' => 'include/footer.php',
@@ -269,15 +273,15 @@ END;
 				'mailConf' => 'include/mailConf.php',
 				'mysql' => 'include/mysql.php',
 				'pageViewable' => 'include/pageViewable.php',
-				
+
 				//JavaScript Files
-				
+
 				'google' => 'js/google.js',
 				'ajax' => 'js/ajax.js',
 				'javascript' => 'js/javascript.php',
-				
+
 				//Login Files
-				
+
 				'loggedIn' => 'login/loggedIn.php',
 				'loggingIn' => 'login/loggingIn.php',
 				'login' => 'login/login.php',
@@ -286,22 +290,22 @@ END;
 				'register' => 'login/register.php',
 				'verify' => 'login/verify.php',
 				'verifying' => 'login/verifying.php',
-				
+
 				//Messages Files
-				
+
 				'messageView' => 'messages/messageView.php',
 				'sendMessage' => 'messages/sendMessage.php',
-				
+
 				//Notifications Files
-				
+
 				'deleteAllNotifications' => 'notifications/deleteAllNotifications.php',
 				'deleteNotification' => 'notifications/deleteNotification.php',
 				'notificationCount' => 'notifications/notificationCount.php',
 				'notifications' => 'notifications/notifications.php',
 				'viewNotifications' => 'notifications/viewNotifications.php',
-				
+
 				//Photo Files
-				
+
 				'photoProcess' => 'photo/photoProcess.php',
 				'photoUpload' => 'photo/photoUpload.php',
 				'photoUploadRedirect' => 'photo/photoUploadRedirect.php',

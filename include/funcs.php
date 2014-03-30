@@ -6,7 +6,7 @@
 		}
 		return $rand;
 	}
-	 
+
 	function query_DB($mysqli, $query) {
 		$result = mysqli_query($mysqli, $query);
 		if (!$result) {
@@ -72,7 +72,7 @@
 			}
 		}
 	}
-	
+
 	function notification($mysqli, $uid, $title, $link) {
 		$query = "INSERT INTO `notifications` (`uid`, `date`, `title`, `link`) VALUES ('{$uid}', '" . time() . "', '{$title}', '{$link}')";
 		$result = query_DB($mysqli, $query);
@@ -83,7 +83,7 @@
 		}
 		return $result;
 	}
-	
+
 	function friendUids($mysqli, $currentUser) {
 		$result = query_DB($mysqli, "SELECT uid1, uid2 FROM friends WHERE (uid1={$currentUser['uid']} OR uid2={$currentUser['uid']}) AND `acc1`=1 AND `acc2`=1");
 		if ($result) {
@@ -116,7 +116,7 @@
 			return mysqli_num_rows($result);
 		}
 	}
-	
+
 	function putLike($mysqli, $currentUser, $id, $type) {
 		if (!isLiked($mysqli, $currentUser, $id, $type)) {
 			$result = query_DB($mysqli, "INSERT INTO likes (uid, id, type) VALUES ('{$currentUser['uid']}', '{$id}', '{$type}')");
@@ -125,7 +125,7 @@
 				if ($result) {
 					if (mysqli_num_rows($result) != 0) {
 						$row = mysqli_fetch_assoc($result);
-						
+
 						if ($type == 'comment') {
 							$table = 'comments';
 							$idType = 'cid';
@@ -134,18 +134,18 @@
 							$table = 'posts';
 							$idType = 'pid';
 						}
-						
+
 						$result = query_DB($mysqli, "SELECT content, uid, pid FROM {$table} WHERE {$idType}='{$id}'");
 						if ($result) {
 							if (mysqli_num_rows($result) != 0) {
 								$notInfo = mysqli_fetch_assoc($result);
 								$notName = substr($notInfo['content'], 0, 10);
 								$pid = $notInfo['pid'];
-								
+
 								$name = $currentUser['firstname'] . ' ' . $currentUser['lastname'];
 								$title = $message = str_replace(['{name}','{type}', '{notName}'], [$name, $type, $notName], $GLOBALS['receivedPiMsg']);
 								$link = "{$GLOBALS['domain']}/{$GLOBALS['fileNames']['post']}?pid={$pid}";
-								
+
 								notification($mysqli, $notInfo['uid'], $title, $link);
 							}
 						}
@@ -159,14 +159,14 @@
 			return $GLOBALS['givePiAlready'];
 		}
 	}
-	
+
 	function email($userData, $subject, $message) {
 		require_once('PHPMailer/PHPMailerAutoload.php');
-		
+
 		$mail = new PHPMailer();
-		
+
 		$body = $message;
-		
+
 		$mail->IsSMTP();
 		$mail->Host       = $GLOBALS['smtpHost'];
 		$mail->SMTPDebug  = 1;
@@ -205,13 +205,13 @@
 
 		// return mail($to['email'], $subject, $message, $headers);
 	}
-	
+
 	function verify($userData, $verifyCode) {
 			query_DB($GLOBALS['mysqli'], "UPDATE users SET lastActivity='" . time() . "' WHERE username='" . $userData['username'] . "'");
 			$verifyURL = "{$GLOBALS['domain']}/{$GLOBALS['fileNames']['index']}?verify={$verifyCode}&user={$userData['username']}";
 			$subject =  str_replace('{siteName}', $GLOBALS['siteName'], $GLOBALS['verifySubject']);
 			$message = str_replace(['{subject}', '{username}', '{siteName}', '{verifyURL}'], [$subject, $userData['username'], $GLOBALS['siteName'], $verifyURL], $GLOBALS['verifyMsg']);
-			
+
 			$result = email($userData, $subject, $message);
 			if ($result) {
 				return $GLOBALS['verifyEmailSuccess'];
@@ -219,11 +219,11 @@
 				return $GLOBALS['verifyEmailFail'] . str_replace('{url}', keepUrl("resend={$userData['username']}"), '<a href="{url}">here</a>') . ' to resend the email.';
 			}
 	}
-	
+
 	function profileImage($userProfile, $imgClass='profilePhoto', $size=500) {
 		return "<img src=\"{$GLOBALS['fileNames']['viewPhoto']}?iid={$userProfile['iid']}&size={$size}\" width=\"{$size}\" alt=\"{$userProfile['username']}'s picture\" class=\"{$imgClass}\">";
 	}
-	
+
 	function updateProfileImage($uid, $iid, $mysqli) {
 		$result = query_DB($mysqli, "UPDATE users SET iid = '{$iid}' WHERE uid = '{$uid}'");
 		if ($result) {
@@ -232,7 +232,7 @@
 			return False;
 		}
 	}
-	
+
 	function deleteImage($iid, $mysqli) {
 		$result = query_DB($mysqli, "DELETE FROM images WHERE iid = '{$iid}'");
 		if ($result) {
@@ -241,7 +241,7 @@
 			return False;
 		}
 	}
-	
+
 	function getUserGallery($mysqli, $userProfile, $iid, $photoExists) {
 		$msg = '';
 		$result = query_DB($mysqli, "SELECT iid, uid, date, title FROM images WHERE uid={$userProfile['uid']}");
@@ -263,14 +263,14 @@
 			} else {
 				$key = 0;
 			}
-			
+
 			if ($photoExists) {
 				if (isset($images[$key-1])) {
 					$prev = $images[$key-1]['iid'];
 				} else {
 					$prev = $images[$key]['iid'];
 				}
-				
+
 				if (isset($images[$key+1])) {
 					$next = $images[$key+1]['iid'];
 				} else {
@@ -287,7 +287,7 @@
 			return [$photoExists, $msg];
 		}
 	}
-	
+
 	function forgotPass($mysqli, $username) {
 		$resetPassCode = randNumber($GLOBALS['resetPassLength']);
 		query_DB($mysqli, "UPDATE users SET passReset='{$resetPassCode}' WHERE username='{$username}'");
@@ -295,7 +295,7 @@
 		$resetURL = "{$GLOBALS['domain']}/{$GLOBALS['fileNames']['index']}?resetPass={$resetPassCode}&user={$username}";
 		$subject =  $GLOBALS['passwordReset'];
 		$message = str_replace(['{subject}', '{resetURL}'], [$subject, $resetURL], $GLOBALS['passwordResetMsg']);
-		
+
 		$result = email($userData, $subject, $message);
 		if ($result) {
 			return $GLOBALS['passwordResetSuccess'];
@@ -304,7 +304,7 @@
 			return $GLOBALS['passwordResetFail'] . "<a href=\"{$resendURL}\">here</a> to resend the email.";
 		}
 	}
-	
+
 	function resetPass($mysqli, $username, $password, $Vpassword, $resetCode) {
 		if ($password == $Vpassword) {
 			if (strlen($password) > $GLOBALS['passLength']) {
@@ -327,7 +327,7 @@
 			return $GLOBALS['errorMsgs']['password'];
 		}
 	}
-	
+
 	function changeEmail($mysqli, $username, $emailAddress) {
 		$changeEmailCode = randNumber($GLOBALS['changeEmailLength']);
 		query_DB($mysqli, "UPDATE users SET changeEmail='{$changeEmailCode}' WHERE username='{$username}'");
@@ -343,7 +343,7 @@
 			return $GLOBALS['changeEmailNotSent'] . "<a href=\"{$resendURL}\">here</a> to resend the email.";
 		}
 	}
-	
+
 	function deleteProfile($mysqli, $uid) {
 		$failed = False;
 		if (!query_DB($mysqli, "DELETE FROM users WHERE uid='{$uid}'")) {
@@ -377,7 +377,7 @@
 			header('location: ' . $GLOBALS['fileNames']['index']);
 		}
 	}
-	
+
 	function logout() {
 		session_destroy();
 		setcookie('username', '', time()-3600);
@@ -393,7 +393,7 @@
 		$rexFragment = '(#[!$-/0-9:;=@_\':;!a-zA-Z\x7f-\xff]+?)?';
 
 		$validTlds = array_fill_keys(explode(" ", ".aero .asia .biz .cat .com .coop .edu .gov .info .int .jobs .mil .mobi .museum .name .net .org .pro .tel .travel .ac .ad .ae .af .ag .ai .al .am .an .ao .aq .ar .as .at .au .aw .ax .az .ba .bb .bd .be .bf .bg .bh .bi .bj .bm .bn .bo .br .bs .bt .bv .bw .by .bz .ca .cc .cd .cf .cg .ch .ci .ck .cl .cm .cn .co .cr .cu .cv .cx .cy .cz .de .dj .dk .dm .do .dz .ec .ee .eg .er .es .et .eu .fi .fj .fk .fm .fo .fr .ga .gb .gd .ge .gf .gg .gh .gi .gl .gm .gn .gp .gq .gr .gs .gt .gu .gw .gy .hk .hm .hn .hr .ht .hu .id .ie .il .im .in .io .iq .ir .is .it .je .jm .jo .jp .ke .kg .kh .ki .km .kn .kp .kr .kw .ky .kz .la .lb .lc .li .lk .lr .ls .lt .lu .lv .ly .ma .mc .md .me .mg .mh .mk .ml .mm .mn .mo .mp .mq .mr .ms .mt .mu .mv .mw .mx .my .mz .na .nc .ne .nf .ng .ni .nl .no .np .nr .nu .nz .om .pa .pe .pf .pg .ph .pk .pl .pm .pn .pr .ps .pt .pw .py .qa .re .ro .rs .ru .rw .sa .sb .sc .sd .se .sg .sh .si .sj .sk .sl .sm .sn .so .sr .st .su .sv .sy .sz .tc .td .tf .tg .th .tj .tk .tl .tm .tn .to .tp .tr .tt .tv .tw .tz .ua .ug .uk .us .uy .uz .va .vc .ve .vg .vi .vn .vu .wf .ws .ye .yt .yu .za .zm .zw .xn--0zwm56d .xn--11b5bs3a9aj6g .xn--80akhbyknj4f .xn--9t4b11yi5a .xn--deba0ad .xn--g6w251d .xn--hgbk6aj7f53bba .xn--hlcj6aya9esc7a .xn--jxalpdlp .xn--kgbechtv .xn--zckzah .arpa"), true);
-		
+
 		$validImg = array_fill_keys(explode(" ", ".jpeg .jpg .png .gif .bmp"), true);
 
 		$output = '';
@@ -413,7 +413,7 @@
 			if (preg_match('{\.[0-9]{1,3}}', $tld) || isset($validTlds[$tld])) {
 				// Prepend http:// if no protocol specified
 				$completeUrl = $match[1][0] ? $url : "http://$url";
-				
+
 				// Print the hyperlink.
 				$imgFile = strtolower(strrchr($path, '.'));
 				if (stripos($completeUrl, $GLOBALS['domain'])) {
@@ -421,7 +421,7 @@
 				} else {
 					$target = ' target=\"blank\">';
 				}
-				
+
 				if ($media) {
 					if (stripos($completeUrl, 'youtube.com/watch?v=')) {
 						$youtubeWatchCode = explode('&', explode('?v=', $completeUrl)[1])[0];
@@ -444,7 +444,7 @@
 				} else {
 					$output .= '<a href=' . $completeUrl . $target . "$domain$port$path" . '</a>';
 				}
-				
+
 			} else {
 				// Not a valid URL.
 				$output .= ($url);
@@ -454,10 +454,10 @@
 		}
 		// Print the remainder of the text.
 		$output .= substr($text, $position);
-		
+
 		return $output;
 	}
-	
+
 	function removeLines($text) {
 		$text = preg_replace('/(?:(?:\r\n|\r|\n)\s*){2}/s', "\n\n", $text);
 		while (substr($text, -1) == "\n") {

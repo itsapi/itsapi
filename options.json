@@ -1,6 +1,5 @@
 {
-    "replace-keys": true,
     "grunt": false,
     "output": "/var/www/projects/itsapi",
-    "ignore": ["PHPMailer"]
+    "ignore": ["PHPMailer", "credentials.php"]
 }
