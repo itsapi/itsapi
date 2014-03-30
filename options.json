@@ -1,5 +1,5 @@
 {
     "grunt": false,
     "output": "/var/www/projects/itsapi",
-    "ignore": ["PHPMailer", "credentials.php"]
+    "ignore": ["PHPMailer", "include/credentials.php"]
 }
