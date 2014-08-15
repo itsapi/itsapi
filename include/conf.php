@@ -4,7 +4,7 @@
 	}
 
 	$siteName = "It's a Pi!";
-	$domain = 'itsapi.co.uk';
+	$domain = 'itsapi.dvbris.com';
 
 	$specialMsg = "Thank you for beta-testing It's a Pi! Please PM admins <a href=\"messages.php?username=olls\">Olls</a> or <a href=\"messages.php?username=grit96\">Grit96</a> if you come accross any bugs, issues or just have questions to ask.";
 
