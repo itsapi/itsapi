@@ -1,4 +1,4 @@
 {
-    "output": "/var/www/projects/itsapi",
+    "copy_to": "/var/www/projects/itsapi",
     "ignore": ["PHPMailer", "credentials.php"]
 }
